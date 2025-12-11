@@ -1,0 +1,11 @@
+<div class="testimonial">
+  <blockquote class="testimonial__quote">
+    {{ include.quote }}
+  </blockquote>
+  <div class="testimonial__attribution">
+    <span class="testimonial__author">{{ include.author }}</span>
+    {% if include.role %}
+      <span class="testimonial__role"> &mdash; {{ include.role }}</span>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<article class="case-study-card">
+  <div class="case-study-card__header">
+    <span class="case-study-card__industry">{{ include.industry }}</span>
+    <h3 class="case-study-card__title">{{ include.title }}</h3>
+  </div>
+
+  <div class="case-study-card__body">
+    <p class="case-study-card__excerpt">{{ include.excerpt }}</p>
+
+    {% if include.result %}
+      <div class="case-study-card__result">{{ include.result }}</div>
+    {% endif %}
+
+    {% if include.link %}
+      <a href="{{ include.link }}" class="service-card__link" style="display: block; margin-top: 1rem;">
+        Read the full story
+      </a>
+    {% endif %}
+  </div>
+</article>

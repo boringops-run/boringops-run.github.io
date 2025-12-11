@@ -1,0 +1,37 @@
+<section class="hero">
+  <span class="hero__tagline">{{ include.tagline | default: "Consulting for Operational Calm" }}</span>
+
+  <h1 class="hero__title">
+    {% if include.title %}
+      {{ include.title }}
+    {% else %}
+      Your Infrastructure Should Be <span class="highlight">Boring</span>
+    {% endif %}
+  </h1>
+
+  <p class="hero__subtitle">
+    {{ include.subtitle | default: "We transform chaotic operations into predictable systems that run themselves. No midnight pages. No weekend heroics. Just quiet, relentless reliability." }}
+  </p>
+
+  <div class="hero__cta-group">
+    {% if include.primary_cta %}
+      <a href="{{ include.primary_cta_url | default: '/contact/' }}" class="btn btn--primary btn--large">
+        {{ include.primary_cta }}
+      </a>
+    {% else %}
+      <a href="/contact/?ref=hero" class="btn btn--primary btn--large">
+        Schedule a Chaos Assessment
+      </a>
+    {% endif %}
+
+    {% if include.secondary_cta %}
+      <a href="{{ include.secondary_cta_url | default: '/approach/' }}" class="btn btn--secondary btn--large">
+        {{ include.secondary_cta }}
+      </a>
+    {% else %}
+      <a href="/approach/" class="btn btn--secondary btn--large">
+        See How We Work
+      </a>
+    {% endif %}
+  </div>
+</section>

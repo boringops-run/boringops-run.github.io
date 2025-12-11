@@ -1,0 +1,13 @@
+main:
+  - title: "Home"
+    url: /
+  - title: "Services"
+    url: /services/
+  - title: "Our Approach"
+    url: /approach/
+  - title: "Case Studies"
+    url: /case-studies/
+  - title: "About"
+    url: /about/
+  - title: "Contact"
+    url: /contact/

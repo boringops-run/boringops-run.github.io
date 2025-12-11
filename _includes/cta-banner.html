@@ -1,0 +1,13 @@
+<div class="cta-banner">
+  <h2 class="cta-banner__title">
+    {{ include.title | default: "Ready to make your operations boring?" }}
+  </h2>
+
+  <p class="cta-banner__text">
+    {{ include.text | default: "Let's start with a conversation about your current chaos and where you want to be." }}
+  </p>
+
+  <a href="{{ include.url | default: '/contact/' }}" class="btn btn--primary btn--large">
+    {{ include.cta | default: "Let's Talk" }}
+  </a>
+</div>

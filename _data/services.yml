@@ -1,0 +1,100 @@
+- id: chaos-assessment
+  title: "Chaos Assessment"
+  icon: "fas fa-bolt"
+  tagline: "Discover where excitement is hiding"
+  description: >-
+    A comprehensive audit that maps your operational chaos. We identify
+    the hidden complexity, undocumented dependencies, and heroic workarounds
+    that are stealing your team's time and sanity.
+  deliverables:
+    - "Infrastructure topology mapping"
+    - "Incident pattern analysis (6-12 months)"
+    - "Dependency and risk identification"
+    - "Prioritized remediation roadmap"
+    - "Executive summary with ROI projections"
+  duration: "2-4 weeks"
+  ideal_for: "Teams experiencing frequent incidents or scaling pains"
+
+- id: infrastructure-audit
+  title: "Infrastructure Audit"
+  icon: "fas fa-search"
+  tagline: "Know what you actually have"
+  description: >-
+    Most organizations cannot answer basic questions about their infrastructure.
+    This audit creates a complete, accurate inventory and identifies drift,
+    security gaps, and cost optimization opportunities.
+  deliverables:
+    - "Complete infrastructure inventory"
+    - "Configuration drift analysis"
+    - "Security posture assessment"
+    - "Cost optimization report"
+    - "IaC coverage evaluation"
+  duration: "1-3 weeks"
+  ideal_for: "Organizations with inherited or undocumented infrastructure"
+
+- id: transformation
+  title: "BoringOps Transformation"
+  icon: "fas fa-arrows-rotate"
+  tagline: "From chaos to calm"
+  description: >-
+    A structured engagement that transforms your operations from reactive
+    firefighting to proactive stability. We implement the BoringOps methodology
+    end-to-end, building the processes, tooling, and culture for sustainable calm.
+  deliverables:
+    - "Runbook development and automation"
+    - "Monitoring and alerting overhaul"
+    - "Incident response process design"
+    - "On-call rotation optimization"
+    - "Knowledge transfer and training"
+  duration: "3-6 months"
+  ideal_for: "Teams ready to invest in lasting operational excellence"
+
+- id: incident-response
+  title: "Incident Response Retainer"
+  icon: "fas fa-fire-extinguisher"
+  tagline: "Expert backup when you need it"
+  description: >-
+    Sometimes you need an experienced hand during the crisis, not after.
+    This retainer provides on-demand access to senior expertise for critical
+    incidents, with guaranteed response times.
+  deliverables:
+    - "Priority incident response (4-hour SLA)"
+    - "Post-incident review facilitation"
+    - "Monthly operational health check"
+    - "Quarterly strategy session"
+  duration: "Ongoing retainer"
+  ideal_for: "Lean teams or those with complex, critical systems"
+
+- id: platform-engineering
+  title: "Platform Engineering"
+  icon: "fas fa-cubes"
+  tagline: "Build the boring foundation"
+  description: >-
+    Design and implement an internal developer platform that makes the right
+    way the easy way. Golden paths, self-service infrastructure, and guardrails
+    that enable velocity without chaos.
+  deliverables:
+    - "Platform strategy and architecture"
+    - "Developer experience assessment"
+    - "Golden path implementation"
+    - "Self-service tooling setup"
+    - "Documentation and adoption plan"
+  duration: "2-4 months"
+  ideal_for: "Growing engineering organizations (50+ developers)"
+
+- id: training
+  title: "BoringOps Training"
+  icon: "fas fa-graduation-cap"
+  tagline: "Teach your team to embrace boring"
+  description: >-
+    Hands-on workshops that instill the BoringOps mindset and practices.
+    From incident management to infrastructure-as-code, we train teams
+    to operate with calm confidence.
+  deliverables:
+    - "Customized curriculum design"
+    - "Live workshop delivery (remote or on-site)"
+    - "Practical exercises and labs"
+    - "Assessment and certification"
+    - "Reference materials and playbooks"
+  duration: "1-5 days"
+  ideal_for: "Teams adopting new practices or onboarding rapidly"

@@ -1,0 +1,442 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>From 47 Incidents to 2: A Fintech Transformation - BoringOps</title>
+<meta name="description" content="How a fast-growing fintech reduced production incidents by 96% in 12 weeks">
+
+
+  <meta name="author" content="Dan Zrobok">
+  
+  <meta property="article:author" content="Dan Zrobok">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BoringOps">
+<meta property="og:title" content="From 47 Incidents to 2: A Fintech Transformation">
+<meta property="og:url" content="http://localhost:4000/case-studies/fintech-chaos-to-calm/">
+
+
+  <meta property="og:description" content="How a fast-growing fintech reduced production incidents by 96% in 12 weeks">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-12-11T10:22:36-05:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/case-studies/fintech-chaos-to-calm/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BoringOps Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="BoringOps"></a>
+        
+        <a class="site-title" href="/">
+          BoringOps
+          <span class="site-subtitle">Consulting for Operational Calm</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/services/"
+                
+                
+              >Services</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/approach/"
+                
+                
+              >Our Approach</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/case-studies/"
+                
+                
+              >Case Studies</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="From 47 Incidents to 2: A Fintech Transformation">
+    <meta itemprop="description" content="From 47 Incidents to 2">
+    <meta itemprop="datePublished" content="2025-12-11T10:22:36-05:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/case-studies/fintech-chaos-to-calm/" itemprop="url">From 47 Incidents to 2: A Fintech Transformation
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="from-47-incidents-to-2">From 47 Incidents to 2</h1>
+
+<p><strong>A fast-growing fintech was drowning in production incidents. In 12 weeks, we reduced them by 96%.</strong></p>
+
+<hr />
+
+<h2 id="the-situation">The Situation</h2>
+
+<p>A Series B fintech company had grown from 15 to 80 engineers in 18 months. The infrastructure had not kept pace.</p>
+
+<p><strong>The symptoms were severe:</strong></p>
+
+<ul>
+  <li>47 production incidents in the previous quarter</li>
+  <li>Average of 3 engineers per incident (pulling people from feature work)</li>
+  <li>On-call rotation was referred to as “the punishment”</li>
+  <li>Two senior engineers had quit citing burnout</li>
+  <li>Deploys were scheduled for Tuesday mornings because “at least we have time to fix things before the weekend”</li>
+</ul>
+
+<p>The VP of Engineering knew something had to change but did not know where to start. The problems felt interconnected and overwhelming.</p>
+
+<hr />
+
+<h2 id="the-engagement">The Engagement</h2>
+
+<p>We began with a <strong>Chaos Assessment</strong>: a 3-week deep dive into the operational reality.</p>
+
+<h3 id="what-we-found">What We Found</h3>
+
+<p>The incident count was high, but the root causes were concentrated:</p>
+
+<ol>
+  <li><strong>Observability chaos:</strong> The monitoring was extensive but incoherent. 847 alerts were configured. 12 of them mattered.</li>
+  <li><strong>Deployment pipeline:</strong> Zero automated rollback capability. Every bad deploy required manual intervention.</li>
+  <li><strong>Database connection management:</strong> A single misconfigured connection pool was responsible for 40% of incidents.</li>
+  <li><strong>Runbook coverage:</strong> 23% of critical paths had documentation. The rest was tribal knowledge.</li>
+</ol>
+
+<h3 id="the-roadmap">The Roadmap</h3>
+
+<p>We prioritized ruthlessly:</p>
+
+<p><strong>Week 1-2:</strong> Fix the database connection issue (single change, 40% of incidents eliminated)</p>
+
+<p><strong>Week 3-4:</strong> Alert rationalization (847 → 34 alerts, with clear ownership and runbooks)</p>
+
+<p><strong>Week 5-8:</strong> Deployment pipeline hardening (automated canary, one-click rollback)</p>
+
+<p><strong>Week 9-12:</strong> Runbook development and on-call training</p>
+
+<hr />
+
+<h2 id="the-results">The Results</h2>
+
+<p><strong>After 12 weeks:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Before</th>
+      <th>After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Quarterly incidents</td>
+      <td>47</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Mean time to recovery</td>
+      <td>4.2 hours</td>
+      <td>23 minutes</td>
+    </tr>
+    <tr>
+      <td>Engineers per incident</td>
+      <td>3.1</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <td>Deploy frequency</td>
+      <td>Weekly</td>
+      <td>Daily</td>
+    </tr>
+    <tr>
+      <td>On-call pages (monthly)</td>
+      <td>34</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Beyond the numbers:</strong></p>
+
+<ul>
+  <li>On-call rotation rebranded from “the punishment” to “the quiet shift”</li>
+  <li>Two engineers who had given notice rescinded their resignations</li>
+  <li>Deploy day moved from Tuesday morning to “whenever we want”</li>
+  <li>The CTO told the board that infrastructure was “no longer a concern”</li>
+</ul>
+
+<hr />
+
+<h2 id="key-lessons">Key Lessons</h2>
+
+<ol>
+  <li>
+    <p><strong>Most incidents have few root causes.</strong> The 47 incidents looked like chaos but traced back to 4 issues.</p>
+  </li>
+  <li>
+    <p><strong>Quick wins build credibility.</strong> The database fix in week 1 bought us organizational trust for everything that followed.</p>
+  </li>
+  <li>
+    <p><strong>Observability is not volume.</strong> 847 alerts created noise. 34 alerts created clarity.</p>
+  </li>
+  <li>
+    <p><strong>Documentation is infrastructure.</strong> Runbooks are not overhead. They are the difference between 4-hour and 23-minute recoveries.</p>
+  </li>
+</ol>
+
+<hr />
+
+<div class="cta-banner">
+  <h2 class="cta-banner__title">
+    Dealing with incident fatigue?
+  </h2>
+
+  <p class="cta-banner__text">
+    A Chaos Assessment will identify your root causes and give you a prioritized path to calm.
+  </p>
+
+  <a href="/contact/?ref=case-study-fintech" class="btn btn--primary btn--large">
+    Schedule Your Assessment
+  </a>
+</div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-11T10:22:36-05:00">December 11, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=From+47+Incidents+to+2%3A+A+Fintech+Transformation%20http%3A%2F%2Flocalhost%3A4000%2Fcase-studies%2Ffintech-chaos-to-calm%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcase-studies%2Ffintech-chaos-to-calm%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/case-studies/fintech-chaos-to-calm/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=From+47+Incidents+to+2%3A+A+Fintech+Transformation%20http%3A%2F%2Flocalhost%3A4000%2Fcase-studies%2Ffintech-chaos-to-calm%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/case-studies/healthcare-compliance/" class="pagination--pager" title="Compliance Without Chaos">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://boringops.sh" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-book" aria-hidden="true"></i> Philosophy</a></li>
+        
+      
+        
+          <li><a href="mailto:dan@boringops.run" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+          <li><a href="https://linkedin.com/in/danzrobok" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://github.com/boringops-hq" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">BoringOps</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
