@@ -9,32 +9,26 @@ permalink: /services/
 
 Every engagement is designed to move your operations from chaos toward calm. We meet you where you are and build toward where you need to be.
 
----
-
 {% for service in site.data.services %}
-<div id="{{ service.id }}" style="margin-bottom: 4rem; padding-top: 1rem;">
+<div id="{{ service.id }}" style="margin-bottom: 4rem; padding-top: 1rem;" markdown="1">
 
 ## {{ service.title }}
 
-<p style="color: var(--accent); font-size: 1.1rem; margin-bottom: 1rem; font-style: italic;">{{ service.tagline }}</p>
+*{{ service.tagline }}*
 
 {{ service.description }}
 
 ### What You Get
 
-<ul>
 {% for item in service.deliverables %}
-<li>{{ item }}</li>
+- {{ item }}
 {% endfor %}
-</ul>
 
 **Typical Duration:** {{ service.duration }}
 
 **Ideal For:** {{ service.ideal_for }}
 
 </div>
-
----
 
 {% endfor %}
 
@@ -48,8 +42,6 @@ Most engagements begin with a **Chaos Assessment**. It is the fastest way to und
    cta="Schedule a Chaos Assessment"
    url="/contact/?service=chaos-assessment"
 %}
-
----
 
 ## Engagement Models
 

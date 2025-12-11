@@ -1,43 +1,39 @@
 ---
-title: "Case Studies"
+title: "Example Scenarios"
 layout: single
-description: "Real stories of operational transformation - from chaos to calm"
+description: "Illustrative case studies showing the types of problems we solve"
 permalink: /case-studies/
 ---
 
-# Case Studies
+# Example Scenarios
 
-Real transformations. Real results. Every engagement is different, but the destination is the same: boring, reliable operations.
-
----
+These case studies are composite illustrations based on common patterns we encounter. They represent the types of engagements we undertake, not specific clients.
 
 <div class="case-studies-grid">
   {% include case-study-card.html
      industry="Financial Services"
-     title="From 47 Incidents to 2"
-     excerpt="A fintech startup was losing engineering velocity to constant firefighting. We implemented systematic observability and eliminated 96% of production incidents in 12 weeks."
-     result="96% reduction in incidents"
+     title="Incident Reduction"
+     excerpt="A fintech drowning in production incidents. The root causes traced back to a handful of fixable issues: alert noise, missing runbooks, and misconfigured infrastructure."
+     result="Systematic root cause elimination"
      link="/case-studies/fintech-chaos-to-calm/"
   %}
 
   {% include case-study-card.html
      industry="SaaS / B2B"
-     title="Platform Rescue Mission"
-     excerpt="An inherited platform with no documentation and tribal knowledge scattered across three time zones. We rebuilt operational confidence in 8 weeks."
-     result="Documentation coverage: 0% to 100%"
+     title="Platform Rescue"
+     excerpt="An inherited platform with no documentation and tribal knowledge walking out the door. Emergency knowledge extraction and confidence building."
+     result="Documentation and team enablement"
      link="/case-studies/saas-platform-rescue/"
   %}
 
   {% include case-study-card.html
      industry="Healthcare"
      title="Compliance Without Chaos"
-     excerpt="A healthcare company needed HIPAA compliance without destroying developer velocity. We built guardrails that enabled both. SOC 2 + HIPAA in 87 days."
-     result="SOC 2 + HIPAA in 87 days"
+     excerpt="SOC 2 and HIPAA compliance needed on a deadline, without destroying developer velocity. Guardrails instead of gates."
+     result="Compliant infrastructure developers like"
      link="/case-studies/healthcare-compliance/"
   %}
 </div>
-
----
 
 ## Common Patterns
 
@@ -54,8 +50,6 @@ Security and compliance seen as obstacles to velocity. The solution is infrastru
 
 **Scale Panic**
 Growth triggers fear instead of excitement. The solution is foundations that scale predictably.
-
----
 
 {% include cta-banner.html
    title="See Yourself in These Stories?"

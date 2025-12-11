@@ -1,6 +1,6 @@
 ---
 title: "Compliance Without Chaos"
-description: "How a healthcare company achieved SOC 2 and HIPAA compliance without destroying developer velocity"
+description: "How to achieve compliance without destroying developer velocity"
 layout: single
 industry: "Healthcare"
 permalink: /case-studies/healthcare-compliance/
@@ -8,9 +8,9 @@ permalink: /case-studies/healthcare-compliance/
 
 # Compliance Without Chaos
 
-**A healthcare company needed SOC 2 and HIPAA compliance in 90 days without destroying the developer experience that made them successful.**
+*This case study is a composite illustration based on common patterns. It represents the type of engagement we undertake, not a specific client.*
 
----
+**A healthcare company needed SOC 2 and HIPAA compliance on a deadline, without destroying the developer experience that made them successful.**
 
 ## The Situation
 
@@ -23,8 +23,6 @@ A digital health startup had landed their first enterprise customer. The deal wa
 2. **The culture was velocity-focused.** Engineers had full production access. Deploys happened whenever. "Move fast and fix things" had gotten them this far.
 
 The founders worried that compliance would calcify the organization. The engineering team worried that compliance meant bureaucracy, tickets, and waiting.
-
----
 
 ## The Engagement
 
@@ -62,31 +60,17 @@ Instead of adding approval workflows and access restrictions that slowed people 
 - PHI data classification and handling policies
 - Automated data retention and disposal
 
----
-
 ## The Results
 
-**Compliance achieved:** SOC 2 Type II and HIPAA in 87 days
+**What changes look like:**
 
-**Developer experience (internal survey):**
+- Compliance achieved on deadline
+- Developer velocity maintained or improved
+- Engineers understand why controls exist
+- Production access becomes faster, not slower (just-in-time beats always-on)
+- Audits go smoothly when evidence collection is automated
 
-- "Compliance slows me down": Expected 78%, Actual 12%
-- "I understand why the controls exist": 91%
-- "The new tooling is better than what we had": 84%
-
-**Velocity metrics:**
-
-- Deploy frequency: Maintained (daily)
-- Lead time for changes: Improved 15% (better tooling)
-- Production access requests: 2 minutes average (down from hours)
-
-**Audit results:**
-
-- Zero critical findings
-- Two minor findings (documentation gaps, addressed in 1 week)
-- Auditor comment: "One of the cleanest first audits we have seen"
-
----
+**The key insight:** Compliance can improve developer experience when done right. The forcing function leads to better tooling than teams would build otherwise.
 
 ## Key Lessons
 
@@ -97,8 +81,6 @@ Instead of adding approval workflows and access restrictions that slowed people 
 3. **Automation is the answer.** Manual compliance processes scale poorly and frustrate everyone. Automated controls scale infinitely.
 
 4. **Culture matters.** Framing compliance as "better infrastructure" instead of "bureaucracy" made adoption natural.
-
----
 
 {% include cta-banner.html
    title="Facing a compliance deadline?"

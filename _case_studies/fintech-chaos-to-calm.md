@@ -1,16 +1,16 @@
 ---
-title: "From 47 Incidents to 2: A Fintech Transformation"
-description: "How a fast-growing fintech reduced production incidents by 96% in 12 weeks"
+title: "Incident Reduction: A Fintech Scenario"
+description: "How systematic root cause analysis transforms chaotic operations"
 layout: single
 industry: "Financial Services"
 permalink: /case-studies/fintech-chaos-to-calm/
 ---
 
-# From 47 Incidents to 2
+# Incident Reduction
 
-**A fast-growing fintech was drowning in production incidents. In 12 weeks, we reduced them by 96%.**
+*This case study is a composite illustration based on common patterns. It represents the type of engagement we undertake, not a specific client.*
 
----
+**A fast-growing fintech was drowning in production incidents. The root causes traced back to a handful of fixable issues.**
 
 ## The Situation
 
@@ -25,8 +25,6 @@ A Series B fintech company had grown from 15 to 80 engineers in 18 months. The i
 - Deploys were scheduled for Tuesday mornings because "at least we have time to fix things before the weekend"
 
 The VP of Engineering knew something had to change but did not know where to start. The problems felt interconnected and overwhelming.
-
----
 
 ## The Engagement
 
@@ -53,40 +51,32 @@ We prioritized ruthlessly:
 
 **Week 9-12:** Runbook development and on-call training
 
----
-
 ## The Results
 
-**After 12 weeks:**
+**What changes look like:**
 
-| Metric | Before | After |
-|--------|--------|-------|
-| Quarterly incidents | 47 | 2 |
-| Mean time to recovery | 4.2 hours | 23 minutes |
-| Engineers per incident | 3.1 | 1.2 |
-| Deploy frequency | Weekly | Daily |
-| On-call pages (monthly) | 34 | 4 |
+- Incident volume drops significantly once root causes are addressed
+- Mean time to recovery improves dramatically with proper runbooks
+- Fewer engineers needed per incident when documentation exists
+- Deploy frequency increases when deploys become non-events
+- On-call stops being punishment
 
-**Beyond the numbers:**
+**Beyond the metrics:**
 
-- On-call rotation rebranded from "the punishment" to "the quiet shift"
-- Two engineers who had given notice rescinded their resignations
-- Deploy day moved from Tuesday morning to "whenever we want"
-- The CTO told the board that infrastructure was "no longer a concern"
-
----
+- Engineers stop dreading the on-call rotation
+- Retention improves when burnout decreases
+- Deploys happen when features are ready, not on "safe" days
+- Infrastructure stops being a board-level concern
 
 ## Key Lessons
 
-1. **Most incidents have few root causes.** The 47 incidents looked like chaos but traced back to 4 issues.
+1. **Most incidents have few root causes.** A high incident count often traces back to a small number of issues.
 
-2. **Quick wins build credibility.** The database fix in week 1 bought us organizational trust for everything that followed.
+2. **Quick wins build credibility.** Early fixes buy organizational trust for everything that follows.
 
-3. **Observability is not volume.** 847 alerts created noise. 34 alerts created clarity.
+3. **Observability is not volume.** Hundreds of alerts create noise. A focused set creates clarity.
 
-4. **Documentation is infrastructure.** Runbooks are not overhead. They are the difference between 4-hour and 23-minute recoveries.
-
----
+4. **Documentation is infrastructure.** Runbooks are not overhead. They are the difference between hour-long and minute-long recoveries.
 
 {% include cta-banner.html
    title="Dealing with incident fatigue?"

@@ -1,16 +1,16 @@
 ---
 title: "Platform Rescue: Rebuilding Operational Confidence"
-description: "How we documented an undocumented platform and restored team confidence in 8 weeks"
+description: "How knowledge extraction and documentation restores team confidence"
 layout: single
 industry: "SaaS / B2B"
 permalink: /case-studies/saas-platform-rescue/
 ---
 
-# Platform Rescue Mission
+# Platform Rescue
 
-**An inherited platform with no documentation and tribal knowledge scattered across three time zones. We rebuilt operational confidence in 8 weeks.**
+*This case study is a composite illustration based on common patterns. It represents the type of engagement we undertake, not a specific client.*
 
----
+**An inherited platform with no documentation and tribal knowledge walking out the door. Knowledge extraction before it is too late.**
 
 ## The Situation
 
@@ -21,12 +21,10 @@ A B2B SaaS company had acquired a smaller competitor for its technology. The acq
 - Zero documentation (the original team had "always planned to write it")
 - 14 services with unclear dependencies
 - Credentials stored in a spreadsheet on someone's laptop
-- The only person who knew the deploy process was on a different continent and leaving in 6 weeks
+- The only person who knew the deployment process was on a different continent and leaving in weeks
 - Production access required SSH-ing through three jump hosts with manually rotated keys
 
 The new team was afraid to touch anything. Feature velocity had dropped to zero. The CTO described the platform as "a haunted house."
-
----
 
 ## The Engagement
 
@@ -60,27 +58,17 @@ Put the documentation to the test:
 - Controlled deploy exercises
 - Q&A sessions and documentation refinement
 
----
-
 ## The Results
 
-**Documentation coverage:** 0% → 100%
+**What changes look like:**
 
-**Team confidence (internal survey):**
+- Documentation coverage goes from nonexistent to comprehensive
+- Team confidence increases measurably
+- Engineers move from "afraid to touch anything" to shipping features
+- Mean time to recovery improves when people can follow runbooks
+- Knowledge holders can depart without disruption
 
-- "I understand how this system works": 12% → 89%
-- "I could handle an incident alone": 8% → 76%
-- "I would deploy on a Friday": 4% → 67%
-
-**Operational metrics:**
-
-- First feature shipped by new team: Week 9
-- Mean time to recovery: Improved 3x (with documentation, fewer people needed)
-- Successful handoff: Original engineer departed on schedule with no disruption
-
-**The CTO's summary:** "The platform went from haunted house to boring utility. That is exactly what we needed."
-
----
+**The goal:** Transform a haunted house into a boring utility.
 
 ## Key Lessons
 
@@ -91,8 +79,6 @@ Put the documentation to the test:
 3. **Game days reveal gaps.** The simulated incidents exposed documentation holes before real incidents did.
 
 4. **Confidence is measurable.** The internal surveys gave us concrete evidence of progress beyond metrics.
-
----
 
 {% include cta-banner.html
    title="Inherited a platform with no documentation?"
