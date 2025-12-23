@@ -1,0 +1,81 @@
+<style>
+  /* Override minimal-mistakes theme colors */
+  :root {
+    --primary-color: #fb923c;
+    --link-color: #fb923c;
+  }
+
+  /* Remove theme's default content margin/padding that creates gap above footer */
+  .initial-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  #main {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .page__footer {
+    margin-top: 0 !important;
+  }
+
+  /* Kill any theme wrapper margins */
+  .layout--home_splash .initial-content,
+  .layout--default .initial-content,
+  .layout--page .initial-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure body fills viewport without gaps */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .initial-content {
+    flex: 1 0 auto;
+  }
+
+  .page__footer {
+    flex-shrink: 0;
+  }
+
+  /* Theme's archive/page wrappers */
+  .archive, .page {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Kill any green from the theme - but not header/nav/anchors/CTAs */
+  a:not(.header-brand):not(.nav-link):not(.share-btn):not(.heading-anchor):not(.post-back):not(.post-cta):not(.cta-btn) {
+    color: rgba(251, 146, 60, 0.9) !important;
+  }
+
+  a:not(.header-brand):not(.nav-link):not(.share-btn):not(.heading-anchor):not(.post-back):not(.post-cta):not(.cta-btn):hover {
+    color: rgb(251, 146, 60) !important;
+  }
+
+  /* CTA buttons stay black */
+  .cta-btn {
+    color: #000 !important;
+  }
+
+  /* Override theme's success/info colors if they're green */
+  .notice--success,
+  .notice--info {
+    background-color: rgba(251, 146, 60, 0.1);
+    border-left-color: rgb(251, 146, 60);
+  }
+
+  /* Override any green buttons */
+  .btn--success {
+    background-color: rgb(251, 146, 60);
+  }
+
+  .btn--success:hover {
+    background-color: rgb(249, 115, 22);
+  }
+</style>

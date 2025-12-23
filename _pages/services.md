@@ -7,7 +7,11 @@ permalink: /services/
 <div class="services-page">
   <header class="services-header">
     <div class="services-header-inner">
-      <span class="services-label">The Work</span>
+      <div class="terminal-prompt">
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-text">./diagnose --verbose</span>
+        <span class="cursor"></span>
+      </div>
       <h1>Finite engagements.<br>Forced decisions.</h1>
       <p class="services-intro">
         This is not advisory work.<br>
@@ -30,7 +34,7 @@ permalink: /services/
   </section>
 
   <section class="services-list">
-    <a href="/services/chaos_assessment/" class="service-card service-card--primary">
+    <a href="/services/chaos_assessment/" class="service-card service-card--primary" data-num="01">
       <div class="service-card-inner">
         <span class="service-card-number">01</span>
         <h2>Chaos Assessment</h2>
@@ -50,7 +54,7 @@ permalink: /services/
       <span class="service-card-cta">Learn more →</span>
     </a>
 
-    <a href="/services/tolerance/" class="service-card">
+    <a href="/services/tolerance/" class="service-card" data-num="02">
       <div class="service-card-inner">
         <span class="service-card-number">02</span>
         <h2>Chaos Tolerance Decision</h2>
@@ -91,7 +95,7 @@ permalink: /services/
       <span class="service-card-cta">Learn more →</span>
     </a> -->
 
-    <div class="service-card service-card--coming">
+    <div class="service-card service-card--coming" data-num="03">
       <div class="service-card-inner">
         <span class="service-card-number">03</span>
         <h2>Ongoing Stewardship</h2>
@@ -128,20 +132,9 @@ permalink: /services/
           <span class="path-note">Ongoing</span>
         </div>
       </div>
-      <!-- <p class="path-desc">
-        The Executive Interference Audit may be triggered by assessment findings
-        or engaged independently when recovery patterns indicate authority friction.
-      </p> -->
     </div>
   </section>
 
-  <section class="services-cta">
-    <div class="cta-noise" aria-hidden="true">deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • don't touch that service • only Jake knows • Jake left • check Confluence • Confluence is wrong • deploy failed • customer escalation • all hands on deck • war room • same error different day • works on my machine • check the logs • which logs • logging is broken • we'll fix it next sprint • added to backlog • backlog is 400 items • priority 1 • everything is priority 1 • AWS is down • it's not DNS • it was DNS • cert expired • who renewed the cert • memory leak • disk full • connection pool exhausted • timeout • retry storm • cascading failure • single point of failure • no rollback plan • deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • redis is full • kafka lag • OOM killed • zombie process • SSL handshake failed • rate limited • quota exceeded • permissions denied • token expired • secret rotated • config drift • missing env var • wrong branch • merge conflict • deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • don't touch that service • only Jake knows • Jake left • check Confluence • Confluence is wrong • deploy failed • customer escalation • all hands on deck • war room • same error different day • works on my machine • check the logs • which logs • logging is broken • we'll fix it next sprint • added to backlog • backlog is 400 items • priority 1 • everything is priority 1 • AWS is down • it's not DNS • it was DNS • cert expired • who renewed the cert • memory leak • disk full • connection pool exhausted • timeout • retry storm • cascading failure • single point of failure • no rollback plan</div>
-    <div class="services-cta-inner">
-      <p><strong>Every engagement begins with a Chaos Assessment.</strong></p>
-      <a href="/contact/">Start a conversation</a>
-    </div>
-  </section>
 </div>
 
 
@@ -160,19 +153,47 @@ permalink: /services/
   .services-header-inner {
     max-width: 900px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: services-fade-in 0.6s ease-out 0.1s forwards;
   }
 
-  .services-label {
-    display: inline-block;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+  @keyframes services-fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Terminal prompt */
+  .terminal-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.8125rem;
     color: rgba(249, 115, 22, 0.7);
-    margin-bottom: 1.25rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(249, 115, 22, 0.25);
-    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    padding: 0.625rem 1rem;
+    background: rgba(249, 115, 22, 0.05);
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    border-radius: 4px;
+  }
+
+  .prompt-symbol {
+    color: rgba(249, 115, 22, 0.9);
+    font-weight: 600;
+  }
+
+  .cursor {
+    width: 8px;
+    height: 14px;
+    background: rgba(249, 115, 22, 0.7);
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 
   .services-header h1 {
@@ -314,6 +335,30 @@ permalink: /services/
     position: relative;
   }
 
+  /* Big background number */
+  .service-card::after {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px;
+    right: 1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 8rem;
+    font-weight: 800;
+    color: rgba(249, 115, 22, 0.03);
+    line-height: 1;
+    pointer-events: none;
+    transition: all 300ms ease;
+  }
+
+  .service-card:hover::after {
+    color: rgba(249, 115, 22, 0.06);
+    transform: scale(1.05);
+  }
+
+  .service-card--coming::after {
+    color: rgba(255, 255, 255, 0.02);
+  }
+
   .service-card-number {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.625rem;
@@ -324,6 +369,8 @@ permalink: /services/
     padding: 0.2rem 0.5rem;
     border-radius: 2px;
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
   }
 
   .service-card h2 {
@@ -375,6 +422,13 @@ permalink: /services/
     background: rgba(249, 115, 22, 0.06);
     border: 1px solid rgba(249, 115, 22, 0.15);
     border-radius: 2px;
+    transition: all 200ms ease;
+  }
+
+  .service-card:hover .service-card-outputs li {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: rgba(249, 115, 22, 0.25);
+    color: rgba(232, 230, 227, 0.8);
   }
 
   .service-card-duration {
@@ -501,6 +555,13 @@ permalink: /services/
     line-height: 1.5rem;
     border-radius: 50%;
     margin: 0 auto 0.75rem;
+    transition: all 250ms ease;
+  }
+
+  .path-step:hover .path-num {
+    background: rgba(249, 115, 22, 0.9);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+    transform: scale(1.15);
   }
 
   .path-label {
@@ -523,6 +584,15 @@ permalink: /services/
 
   .path-step:first-child .path-note {
     color: rgba(249, 115, 22, 0.6);
+  }
+
+  .path-step:first-child .path-num {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 rgba(249, 115, 22, 0); }
+    50% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); }
   }
 
   .path-arrow {

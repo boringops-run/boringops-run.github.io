@@ -13,14 +13,14 @@ minimal_mistakes_skin: "dark"
 
 # Site Author
 author:
-  name: "Consulting Co"
+  name: "BoringOps.Run"
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   location: "Lorem City, AB"
-  email: "hello@example.com"
+  email: "hello@boringops.run"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:hello@example.com"
+      url: "mailto:hello@boringops.run"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/"
@@ -83,9 +83,9 @@ collections:
   services:
     output: true
     permalink: /services/:slug/
-  case_studies:
+  proof:
     output: true
-    permalink: /case-studies/:slug/
+    permalink: /proof/:slug/
 
 # Defaults
 defaults:
@@ -96,6 +96,7 @@ defaults:
     values:
       layout: post
       author_profile: false
+      permalink: /articles/:slug/
   # _pages
   - scope:
       path: ""
@@ -112,12 +113,12 @@ defaults:
       author_profile: false
       share: false
       related: false
-  # _case_studies
+  # _proof
   - scope:
       path: ""
-      type: case_studies
+      type: proof
     values:
-      layout: single
+      layout: proof
       author_profile: false
       share: false
       related: false

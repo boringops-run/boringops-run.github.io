@@ -26,7 +26,7 @@ permalink: /
       <span>Falling forward the norm</span>
     </div>
     <p class="pattern-verdict">This isn't bad luck. It's architectural debt demanding payment.</p>
-    <p class="pattern-cta">BoringOps is the discipline that eliminates it. <a href="https://boringops.sh">Learn the philosophy →</a></p>
+    <p class="pattern-cta">BoringOps applies structural discipline to remove it. <a href="/approach/">Learn the approach →</a></p>
   </div>
 </section>
 
@@ -35,7 +35,7 @@ permalink: /
     <h2>Our Work</h2>
 
     <div class="work-sequence">
-      <a href="/services/assessment/" class="work-item">
+      <a href="/services/chaos_assessment/" class="work-item">
         <span class="work-num">01</span>
         <div class="work-content">
           <h3>Chaos Assessment</h3>
@@ -128,7 +128,7 @@ permalink: /
   <div class="cta-noise" aria-hidden="true">deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • don't touch that service • only Jake knows • Jake left • check Confluence • Confluence is wrong • deploy failed • customer escalation • all hands on deck • war room • same error different day • works on my machine • check the logs • which logs • logging is broken • we'll fix it next sprint • added to backlog • backlog is 400 items • priority 1 • everything is priority 1 • AWS is down • it's not DNS • it was DNS • cert expired • who renewed the cert • memory leak • disk full • connection pool exhausted • timeout • retry storm • cascading failure • single point of failure • no rollback plan • deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • redis is full • kafka lag • OOM killed • zombie process • SSL handshake failed • rate limited • quota exceeded • permissions denied • token expired • secret rotated • config drift • missing env var • wrong branch • merge conflict • deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • don't touch that service • only Jake knows • Jake left • check Confluence • Confluence is wrong • deploy failed • customer escalation • all hands on deck • war room • same error different day • works on my machine • check the logs • which logs • logging is broken • we'll fix it next sprint • added to backlog • backlog is 400 items • priority 1 • everything is priority 1 • AWS is down • it's not DNS • it was DNS • cert expired • who renewed the cert • memory leak • disk full • connection pool exhausted • timeout • retry storm • cascading failure • single point of failure • no rollback plan</div>
   <div class="cta-inner">
     <p><strong>This work begins with a Chaos Assessment.</strong></p>
-    <a href="/contact/">Start a conversation</a>
+    <a href="/contact/" class="cta-btn">Request a Chaos Assessment</a>
   </div>
 </section>
 

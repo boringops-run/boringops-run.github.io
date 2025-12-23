@@ -22,14 +22,6 @@ layout: default
     {{ content }}
   </div>
 
-  {% if page.cta != false %}
-  <footer class="service-cta">
-    <div class="service-cta-inner">
-      <p>{{ page.cta_text | default: "This engagement begins with a conversation." }}</p>
-      <a href="/contact/">{{ page.cta_button | default: "Start a conversation" }}</a>
-    </div>
-  </footer>
-  {% endif %}
 </article>
 
 <style>

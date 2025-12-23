@@ -1,14 +1,5 @@
 <div class="site-footer">
   <div class="footer-inner">
-    <div class="footer-social">
-      {% for link in site.footer.links %}
-        {% if link.label and link.url %}
-          <a href="{{ link.url }}" rel="nofollow noopener noreferrer" class="social-link" aria-label="{{ link.label }}">
-            <i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i>
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
     <span class="footer-copyright">&copy; 2025 BoringOps.Run - This space intentionally left boring.</span>
   </div>
 </div>
@@ -31,24 +22,8 @@
 
   .footer-inner {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 1.25rem;
-  }
-
-  .social-link {
-    color: rgba(232, 230, 227, 0.4);
-    font-size: 1.1rem;
-    transition: color 150ms ease;
-  }
-
-  .social-link:hover {
-    color: rgba(249, 115, 22, 0.8);
   }
 
   .footer-copyright {

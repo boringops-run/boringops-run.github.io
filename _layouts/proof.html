@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<div class="post-container">
-  <div class="post-progress" aria-hidden="true"></div>
+<div class="proof-container">
+  <div class="proof-progress" aria-hidden="true"></div>
 
-  <header class="post-header">
-    <div class="post-meta">
-      <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
-      <span class="post-reading-time"></span>
-      <div class="post-share">
+  <header class="proof-header">
+    <div class="proof-meta">
+      <span class="proof-label">Case Study</span>
+      <span class="proof-reading-time"></span>
+      <div class="proof-share">
         <button class="share-btn" data-share="twitter" title="Share on X">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </button>
@@ -24,32 +24,39 @@ layout: default
         </button>
       </div>
     </div>
-    <h1 class="post-title">{{ page.title }}</h1>
-    {% if page.subtitle %}
-    <p class="post-subtitle">{{ page.subtitle }}</p>
+    <h1 class="proof-title">{{ page.title }}</h1>
+    {% if page.excerpt %}
+    <p class="proof-excerpt">{{ page.excerpt }}</p>
+    {% endif %}
+    {% if page.tags %}
+    <div class="proof-tags">
+      {% for tag in page.tags %}
+      <span class="proof-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
     {% endif %}
   </header>
 
-  <article class="post-content">
+  <article class="proof-content">
     {{ content }}
   </article>
 
-  <footer class="post-footer">
-    <div class="post-footer-inner">
-      <a href="/articles/" class="post-back">&larr; All Articles</a>
+  <footer class="proof-footer">
+    <div class="proof-footer-inner">
+      <a href="/proof/" class="proof-back">&larr; All Case Studies</a>
     </div>
   </footer>
 </div>
 
 <style>
-  .post-container {
+  .proof-container {
     background: #000;
     min-height: calc(100vh - 44px);
     position: relative;
   }
 
   /* Reading progress bar */
-  .post-progress {
+  .proof-progress {
     position: fixed;
     top: 0;
     left: 0;
@@ -61,46 +68,47 @@ layout: default
   }
 
   /* Header */
-  .post-header {
+  .proof-header {
     padding: 5rem 1.5rem 3.5rem;
     max-width: 680px;
     margin: 0 auto;
     opacity: 0;
     transform: translateY(10px);
-    animation: post-fade-in 0.5s ease-out 0.1s forwards;
+    animation: proof-fade-in 0.5s ease-out 0.1s forwards;
   }
 
-  @keyframes post-fade-in {
+  @keyframes proof-fade-in {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-  .post-meta {
+  .proof-meta {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
-  .post-date {
+  .proof-label {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.6875rem;
-    letter-spacing: 0.03em;
-    color: rgba(232, 230, 227, 0.4);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(249, 115, 22, 0.8);
     text-transform: uppercase;
   }
 
-  .post-reading-time {
+  .proof-reading-time {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.6875rem;
-    color: rgba(249, 115, 22, 0.6);
+    color: rgba(232, 230, 227, 0.4);
     padding-left: 1.5rem;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .post-share {
+  .proof-share {
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -133,7 +141,7 @@ layout: default
     color: rgba(249, 115, 22, 0.8);
   }
 
-  .post-title {
+  .proof-title {
     font-size: 2.25rem;
     font-weight: 700;
     color: rgba(232, 230, 227, 0.95);
@@ -142,7 +150,7 @@ layout: default
     line-height: 1.25;
   }
 
-  .post-subtitle {
+  .proof-excerpt {
     font-size: 1.1875rem;
     color: rgba(232, 230, 227, 0.5);
     margin: 1.25rem 0 0;
@@ -150,28 +158,42 @@ layout: default
     font-weight: 400;
   }
 
+  .proof-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .proof-tag {
+    font-size: 0.6875rem;
+    color: rgba(232, 230, 227, 0.5);
+    padding: 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 3px;
+  }
+
   /* Content */
-  .post-content {
+  .proof-content {
     max-width: 680px;
     margin: 0 auto;
     padding: 3rem 1.5rem 4rem;
     opacity: 0;
     transform: translateY(10px);
-    animation: post-fade-in 0.5s ease-out 0.25s forwards;
+    animation: proof-fade-in 0.5s ease-out 0.25s forwards;
   }
 
-  /* First paragraph styling */
-  .post-content > p:first-of-type {
+  .proof-content > p:first-of-type {
     font-size: 1.125rem;
     line-height: 1.85;
     color: rgba(232, 230, 227, 0.8);
   }
 
-  .post-content h1 {
-    display: none; /* Hide duplicate h1 from markdown */
+  .proof-content h1 {
+    display: none;
   }
 
-  .post-content h2 {
+  .proof-content h2 {
     font-size: 1.5rem;
     font-weight: 700;
     color: rgba(232, 230, 227, 0.95);
@@ -183,11 +205,11 @@ layout: default
     scroll-margin-top: 5rem;
   }
 
-  .post-content h2:first-child {
+  .proof-content h2:first-child {
     margin-top: 0;
   }
 
-  .post-content h2 .heading-anchor {
+  .proof-content h2 .heading-anchor {
     position: absolute;
     left: -1.25rem;
     color: rgba(249, 115, 22, 0);
@@ -196,15 +218,15 @@ layout: default
     transition: color 150ms ease;
   }
 
-  .post-content h2:hover .heading-anchor {
+  .proof-content h2:hover .heading-anchor {
     color: rgba(249, 115, 22, 0.5);
   }
 
-  .post-content h2 .heading-anchor:hover {
+  .proof-content h2 .heading-anchor:hover {
     color: rgba(249, 115, 22, 0.8);
   }
 
-  .post-content h3 {
+  .proof-content h3 {
     font-size: 0.75rem;
     font-weight: 700;
     color: rgba(232, 230, 227, 0.7);
@@ -213,20 +235,20 @@ layout: default
     letter-spacing: 0.05em;
   }
 
-  .post-content p {
+  .proof-content p {
     font-size: 1.0625rem;
     line-height: 1.85;
     color: rgba(232, 230, 227, 0.7);
     margin: 0 0 1.625rem;
   }
 
-  .post-content ul, .post-content ol {
+  .proof-content ul, .proof-content ol {
     margin: 0 0 1.75rem;
     padding-left: 0;
     list-style: none;
   }
 
-  .post-content li {
+  .proof-content li {
     font-size: 1.0625rem;
     line-height: 1.8;
     color: rgba(232, 230, 227, 0.65);
@@ -235,7 +257,7 @@ layout: default
     position: relative;
   }
 
-  .post-content li::before {
+  .proof-content li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -246,24 +268,7 @@ layout: default
     border-radius: 50%;
   }
 
-  .post-content ol {
-    counter-reset: ol-counter;
-  }
-
-  .post-content ol li::before {
-    content: counter(ol-counter);
-    counter-increment: ol-counter;
-    width: auto;
-    height: auto;
-    background: none;
-    border-radius: 0;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.75rem;
-    color: rgba(249, 115, 22, 0.6);
-    font-weight: 600;
-  }
-
-  .post-content strong {
+  .proof-content strong {
     color: rgba(232, 230, 227, 0.95);
     font-weight: 600;
     background: rgba(249, 115, 22, 0.08);
@@ -271,63 +276,12 @@ layout: default
     border-radius: 2px;
   }
 
-  .post-content em {
+  .proof-content em {
     color: rgba(232, 230, 227, 0.75);
     font-style: italic;
   }
 
-  .post-content a {
-    color: rgba(249, 115, 22, 0.9);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(249, 115, 22, 0.3);
-    transition: border-color 150ms ease;
-  }
-
-  .post-content a:hover {
-    border-color: rgba(249, 115, 22, 0.8);
-  }
-
-  .post-content blockquote {
-    margin: 2.5rem 0;
-    padding: 1.75rem 2rem;
-    border-left: 3px solid rgba(249, 115, 22, 0.6);
-    background: linear-gradient(90deg, rgba(249, 115, 22, 0.04) 0%, transparent 100%);
-    border-radius: 0 4px 4px 0;
-  }
-
-  .post-content blockquote p {
-    margin: 0;
-    font-size: 1.0625rem;
-    color: rgba(232, 230, 227, 0.75);
-    font-style: italic;
-  }
-
-  /* Pull quotes - blockquotes with bold */
-  .post-content blockquote.pull-quote {
-    border-left: none;
-    border-top: 1px solid rgba(249, 115, 22, 0.3);
-    border-bottom: 1px solid rgba(249, 115, 22, 0.3);
-    background: transparent;
-    text-align: center;
-    padding: 2.5rem 2rem;
-    margin: 3rem 0;
-  }
-
-  .post-content blockquote.pull-quote p {
-    font-size: 1.375rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.5;
-    color: rgba(232, 230, 227, 0.85);
-  }
-
-  .post-content blockquote.pull-quote strong {
-    background: none;
-    padding: 0;
-    color: rgba(249, 115, 22, 0.9);
-  }
-
-  .post-content code {
+  .proof-content code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.875em;
     background: rgba(255, 255, 255, 0.06);
@@ -336,24 +290,26 @@ layout: default
     color: rgba(232, 230, 227, 0.85);
   }
 
-  .post-content pre {
+  .proof-content blockquote {
     margin: 2.5rem 0;
-    padding: 1.5rem 1.75rem;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-left: 3px solid rgba(249, 115, 22, 0.3);
+    padding: 1.75rem 2rem;
+    border-left: 3px solid rgba(249, 115, 22, 0.6);
+    background: linear-gradient(90deg, rgba(249, 115, 22, 0.04) 0%, transparent 100%);
     border-radius: 0 4px 4px 0;
-    overflow-x: auto;
   }
 
-  .post-content pre code {
-    background: none;
-    padding: 0;
-    font-size: 0.8125rem;
-    line-height: 1.7;
+  .proof-content blockquote p {
+    margin: 0 0 1rem;
+    font-size: 1.0625rem;
+    color: rgba(232, 230, 227, 0.8);
+    font-style: italic;
   }
 
-  .post-content hr {
+  .proof-content blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  .proof-content hr {
     border: none;
     height: 1px;
     background: linear-gradient(90deg, rgba(249, 115, 22, 0.2), rgba(255, 255, 255, 0.05), transparent);
@@ -361,15 +317,15 @@ layout: default
   }
 
   /* Footer */
-  .post-footer {
+  .proof-footer {
     max-width: 680px;
     margin: 0 auto;
     padding: 0 1.5rem 6rem;
     opacity: 0;
-    animation: post-fade-in 0.5s ease-out 0.4s forwards;
+    animation: proof-fade-in 0.5s ease-out 0.4s forwards;
   }
 
-  .post-footer-inner {
+  .proof-footer-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -377,81 +333,58 @@ layout: default
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .post-back {
+  .proof-back {
     font-size: 0.8125rem;
     color: rgba(232, 230, 227, 0.5);
     text-decoration: none;
     transition: color 150ms ease;
   }
 
-  .post-back:hover {
+  .proof-back:hover {
     color: rgba(232, 230, 227, 0.8);
   }
 
-  .post-cta {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: rgba(249, 115, 22, 0.8);
-    text-decoration: none;
-    padding: 0.625rem 1.25rem;
-    border: 1px solid rgba(249, 115, 22, 0.3);
-    border-radius: 3px;
-    transition: all 150ms ease;
-  }
-
-  .post-cta:hover {
-    background: rgba(249, 115, 22, 0.1);
-    border-color: rgba(249, 115, 22, 0.5);
-    color: rgba(249, 115, 22, 1);
-  }
-
   @media (max-width: 600px) {
-    .post-header {
+    .proof-header {
       padding: 3.5rem 1.25rem 2.5rem;
     }
 
-    .post-meta {
+    .proof-meta {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
     }
 
-    .post-reading-time {
+    .proof-reading-time {
       padding-left: 0;
       border-left: none;
     }
 
-    .post-share {
+    .proof-share {
       margin-left: 0;
       padding-left: 0;
       border-left: none;
     }
 
-    .post-title {
+    .proof-title {
       font-size: 1.625rem;
     }
 
-    .post-content {
+    .proof-content {
       padding: 2rem 1.25rem 3rem;
     }
 
-    .post-content p,
-    .post-content li {
+    .proof-content p,
+    .proof-content li {
       font-size: 1rem;
     }
 
-    .post-content > p:first-of-type {
+    .proof-content > p:first-of-type {
       font-size: 1.0625rem;
     }
 
-    .post-footer {
+    .proof-footer {
       padding: 0 1.25rem 4rem;
-    }
-
-    .post-footer-inner {
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: flex-start;
     }
   }
 </style>
@@ -461,19 +394,19 @@ layout: default
   'use strict';
 
   // Calculate reading time
-  var content = document.querySelector('.post-content');
+  var content = document.querySelector('.proof-content');
   if (content) {
     var text = content.textContent || content.innerText;
     var words = text.trim().split(/\s+/).length;
     var minutes = Math.ceil(words / 200);
-    var readingTimeEl = document.querySelector('.post-reading-time');
+    var readingTimeEl = document.querySelector('.proof-reading-time');
     if (readingTimeEl) {
       readingTimeEl.textContent = minutes + ' min read';
     }
   }
 
   // Reading progress bar
-  var progressBar = document.querySelector('.post-progress');
+  var progressBar = document.querySelector('.proof-progress');
   if (progressBar && content) {
     window.addEventListener('scroll', function() {
       var contentRect = content.getBoundingClientRect();
@@ -489,7 +422,7 @@ layout: default
   }
 
   // Add anchor links to H2s
-  var headings = document.querySelectorAll('.post-content h2');
+  var headings = document.querySelectorAll('.proof-content h2');
   headings.forEach(function(heading) {
     var text = heading.textContent.trim();
     var slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -500,15 +433,6 @@ layout: default
     anchor.textContent = '#';
     anchor.setAttribute('aria-hidden', 'true');
     heading.insertBefore(anchor, heading.firstChild);
-  });
-
-  // Detect pull quotes (blockquotes containing only bold text)
-  var blockquotes = document.querySelectorAll('.post-content blockquote');
-  blockquotes.forEach(function(bq) {
-    var p = bq.querySelector('p');
-    if (p && p.querySelector('strong') && p.childNodes.length <= 3) {
-      bq.classList.add('pull-quote');
-    }
   });
 
   // Share buttons

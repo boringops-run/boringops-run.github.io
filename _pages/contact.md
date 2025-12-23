@@ -7,10 +7,14 @@ permalink: /contact/
 <div class="contact-page">
   <header class="contact-header">
     <div class="contact-header-inner">
-      <h1>Start a Conversation</h1>
+      <div class="terminal-prompt">
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-text">ssh chaos@yourcompany</span>
+        <span class="cursor"></span>
+      </div>
+      <h1>Let's see what's broken.</h1>
       <p class="contact-intro">
-        Every engagement begins with understanding whether the work is appropriate.
-        This is not a sales call. It is a fit assessment.
+        This isn't a sales call. It's a fit assessment. We figure out if this work makes sense for your situation.
       </p>
     </div>
   </header>
@@ -102,15 +106,57 @@ permalink: /contact/
     min-height: calc(100vh - 44px);
   }
 
+  /* Terminal prompt */
+  .terminal-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.8125rem;
+    color: rgba(249, 115, 22, 0.7);
+    margin-bottom: 1.5rem;
+    padding: 0.625rem 1rem;
+    background: rgba(249, 115, 22, 0.05);
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    border-radius: 4px;
+  }
+
+  .prompt-symbol {
+    color: rgba(249, 115, 22, 0.9);
+    font-weight: 600;
+  }
+
+  .cursor {
+    width: 8px;
+    height: 14px;
+    background: rgba(249, 115, 22, 0.7);
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
   /* Header */
   .contact-header {
     padding: 5rem 1.5rem 4rem;
+    background: linear-gradient(180deg, rgba(249, 115, 22, 0.03) 0%, transparent 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .contact-header-inner {
     max-width: 800px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: contact-fade-in 0.6s ease-out 0.1s forwards;
+  }
+
+  @keyframes contact-fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .contact-header h1 {
