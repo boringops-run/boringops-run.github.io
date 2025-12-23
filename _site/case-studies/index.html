@@ -1,34 +1,24 @@
 <!doctype html>
-<!--
-  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
-  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
-  Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
--->
-
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Example Scenarios - BoringOps</title>
-<meta name="description" content="Illustrative case studies showing the types of problems we solve">
+<!-- begin _includes/seo.html --><title>Case Studies - Consulting Co</title>
+<meta name="description" content="Real-world examples of boring infrastructure done right">
 
 
-  <meta name="author" content="Dan Zrobok">
+  <meta name="author" content="Consulting Co">
   
 
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="BoringOps">
-<meta property="og:title" content="Example Scenarios">
-<meta property="og:url" content="http://localhost:4000/case-studies/">
+<meta property="og:site_name" content="Consulting Co">
+<meta property="og:title" content="Case Studies">
+<meta property="og:url" content="http://localhost:4003/case-studies/">
 
 
-  <meta property="og:description" content="Illustrative case studies showing the types of problems we solve">
-
-
-
+  <meta property="og:description" content="Real-world examples of boring infrastructure done right">
 
 
 
@@ -38,7 +28,10 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/case-studies/">
+
+
+
+<link rel="canonical" href="http://localhost:4003/case-studies/">
 
 
 
@@ -55,7 +48,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BoringOps Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Consulting Co Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
@@ -78,7 +71,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -87,66 +80,139 @@
   </ul>
 </nav>
 
-    
-
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        
-          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="BoringOps"></a>
-        
-        <a class="site-title" href="/">
-          BoringOps
-          <span class="site-subtitle">Consulting for Operational Calm</span>
-        </a>
-        <ul class="visible-links"><li class="masthead__menu-item">
-              <a
-                href="/"
-                
-                
-              >Home</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/services/"
-                
-                
-              >Services</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/approach/"
-                
-                
-              >Our Approach</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/case-studies/"
-                
-                
-              >Case Studies</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/about/"
-                
-                
-              >About</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/contact/"
-                
-                
-              >Contact</a>
-            </li></ul>
-        
-        <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">Toggle menu</span>
-          <div class="navicon"></div>
-        </button>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+    <header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="/" class="header-brand">
+      <svg class="header-icon" viewBox="0 0 24 32" aria-hidden="true">
+        <path d="M8 0 L16 0 L20 28 L4 28 Z" fill="currentColor"/>
+        <rect x="2" y="28" width="20" height="4" fill="currentColor"/>
+        <circle cx="12" cy="26" r="2" fill="currentColor"/>
+        <rect x="11" y="4" width="2" height="20" fill="currentColor" opacity="0.4"/>
+      </svg>
+      <span class="header-text">BoringOps.Run</span>
+    </a>
+    <nav class="header-nav">
+      <a href="/services/" class="nav-link">Services</a>
+      <a href="/approach/" class="nav-link">Approach</a>
+      <a href="/articles/" class="nav-link">Articles</a>
+      <a href="/proof/" class="nav-link">Proof</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+    </nav>
   </div>
-</div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #111;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: opacity 150ms ease-out;
+  }
+
+  .site-header.scrolled {
+    opacity: 0.85;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.625rem 1.5rem;
+    height: 44px;
+    box-sizing: border-box;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: rgba(232, 230, 227, 1);
+  }
+
+  .header-brand:hover {
+    color: rgba(232, 230, 227, 1);
+  }
+
+  .header-icon {
+    width: 14px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .header-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .nav-link {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(232, 230, 227, 1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-link:hover {
+    color: rgba(249, 115, 22, 1);
+  }
+
+  @media (max-width: 600px) {
+    .header-inner {
+      padding: 0.5rem 1rem;
+      height: 40px;
+    }
+
+    .header-text {
+      display: none;
+    }
+
+    .header-nav {
+      gap: 1rem;
+    }
+
+    .nav-link {
+      font-size: 0.7rem;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  var header = document.getElementById('site-header');
+  var scrollThreshold = 50;
+  var ticking = false;
+
+  function updateHeader() {
+    if (window.scrollY > scrollThreshold) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
 
 
     <div class="initial-content">
@@ -161,8 +227,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Example Scenarios">
-    
+    <meta itemprop="headline" content="Case Studies">
+    <meta itemprop="description" content="Real-world examples of boring infrastructure done right">
     
     
 
@@ -170,7 +236,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/case-studies/" itemprop="url">Example Scenarios
+            <a href="http://localhost:4003/case-studies/" itemprop="url">Case Studies
 </a>
           </h1>
           
@@ -181,108 +247,33 @@
 
       <section class="page__content" itemprop="text">
         
-        <h1 id="example-scenarios">Example Scenarios</h1>
+        <p>See how we’ve helped organizations simplify their infrastructure and reduce operational overhead.</p>
 
-<p>These case studies are composite illustrations based on common patterns we encounter. They represent the types of engagements we undertake, not specific clients.</p>
+<h2 id="fintech-platform-migration"><a href="/case-studies/fintech-platform-migration/">Fintech Platform Migration</a></h2>
 
-<div class="case-studies-grid">
-  <article class="case-study-card">
-  <div class="case-study-card__header">
-    <span class="case-study-card__industry">Financial Services</span>
-    <h3 class="case-study-card__title">Incident Reduction</h3>
-  </div>
+<p><em>Financial Services</em></p>
 
-  <div class="case-study-card__body">
-    <p class="case-study-card__excerpt">A fintech drowning in production incidents. The root causes traced back to a handful of fixable issues: alert noise, missing runbooks, and misconfigured infrastructure.</p>
+<p>Moving a payment processor to Kubernetes without downtime while maintaining PCI-DSS compliance.</p>
 
-    
-      <div class="case-study-card__result">Systematic root cause elimination</div>
-    
+<p class="text-right"><a href="/case-studies/fintech-platform-migration/" class="btn btn--primary">Read Case Study</a></p>
 
-    
-      <a href="/case-studies/fintech-chaos-to-calm/" class="service-card__link" style="display: block; margin-top: 1rem;">
-        Read the full story
-      </a>
-    
-  </div>
-</article>
+<hr />
 
+<h2 id="saas-reliability-overhaul"><a href="/case-studies/saas-reliability-overhaul/">SaaS Reliability Overhaul</a></h2>
 
-  <article class="case-study-card">
-  <div class="case-study-card__header">
-    <span class="case-study-card__industry">SaaS / B2B</span>
-    <h3 class="case-study-card__title">Platform Rescue</h3>
-  </div>
+<p><em>Software / SaaS</em></p>
 
-  <div class="case-study-card__body">
-    <p class="case-study-card__excerpt">An inherited platform with no documentation and tribal knowledge walking out the door. Emergency knowledge extraction and confidence building.</p>
+<p>From firefighting to proactive operations. Reducing incidents by 90% and building sustainable on-call practices.</p>
 
-    
-      <div class="case-study-card__result">Documentation and team enablement</div>
-    
+<p class="text-right"><a href="/case-studies/saas-reliability-overhaul/" class="btn btn--primary">Read Case Study</a></p>
 
-    
-      <a href="/case-studies/saas-platform-rescue/" class="service-card__link" style="display: block; margin-top: 1rem;">
-        Read the full story
-      </a>
-    
-  </div>
-</article>
+<hr />
 
+<h2 id="ready-to-simplify">Ready to Simplify?</h2>
 
-  <article class="case-study-card">
-  <div class="case-study-card__header">
-    <span class="case-study-card__industry">Healthcare</span>
-    <h3 class="case-study-card__title">Compliance Without Chaos</h3>
-  </div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Let’s discuss how we can make your infrastructure boring in the best way possible.</p>
 
-  <div class="case-study-card__body">
-    <p class="case-study-card__excerpt">SOC 2 and HIPAA compliance needed on a deadline, without destroying developer velocity. Guardrails instead of gates.</p>
-
-    
-      <div class="case-study-card__result">Compliant infrastructure developers like</div>
-    
-
-    
-      <a href="/case-studies/healthcare-compliance/" class="service-card__link" style="display: block; margin-top: 1rem;">
-        Read the full story
-      </a>
-    
-  </div>
-</article>
-
-</div>
-
-<h2 id="common-patterns">Common Patterns</h2>
-
-<p>Every organization’s chaos is unique, but we see common patterns:</p>
-
-<p><strong>Incident Fatigue</strong>
-Teams drowning in alerts, spending more time firefighting than building. The solution is rarely more monitoring. It is better monitoring.</p>
-
-<p><strong>Knowledge Silos</strong>
-Critical systems understood by one person. Bus factor of one. The solution is systematic documentation and deliberate knowledge transfer.</p>
-
-<p><strong>Compliance Anxiety</strong>
-Security and compliance seen as obstacles to velocity. The solution is infrastructure that makes the right way the easy way.</p>
-
-<p><strong>Scale Panic</strong>
-Growth triggers fear instead of excitement. The solution is foundations that scale predictably.</p>
-
-<div class="cta-banner">
-  <h2 class="cta-banner__title">
-    See Yourself in These Stories?
-  </h2>
-
-  <p class="cta-banner__text">
-    Every transformation starts with understanding your current chaos. Let's talk about where you are and where you want to be.
-  </p>
-
-  <a href="/contact/?ref=case-studies" class="btn btn--primary btn--large">
-    Start the Conversation
-  </a>
-</div>
-
+<p><a href="/contact/" class="btn btn--primary btn--large">Get in Touch</a></p>
 
         
       </section>
@@ -309,50 +300,87 @@ Growth triggers fear instead of excitement. The solution is foundations that sca
   
 </div>
 
-      
     </div>
-
-    
 
     <div id="footer" class="page__footer">
       <footer>
-        <!-- start custom footer snippets -->
-
-<!-- end custom footer snippets -->
-        
-
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    
-
-    
+        <div class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-social">
       
         
-          <li><a href="https://boringops.sh" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-book" aria-hidden="true"></i> Philosophy</a></li>
+          <a href="https://github.com/" rel="nofollow noopener noreferrer" class="social-link" aria-label="GitHub">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+          </a>
         
       
         
-          <li><a href="mailto:dan@boringops.run" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          <a href="https://linkedin.com/" rel="nofollow noopener noreferrer" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+          </a>
         
       
-        
-          <li><a href="https://linkedin.com/in/danzrobok" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
-        
-      
-        
-          <li><a href="https://github.com/boringops-hq" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-        
-      
-    
-
-    
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
-    
-  </ul>
+    </div>
+    <span class="footer-copyright">&copy; 2025 BoringOps.Run - This space intentionally left boring.</span>
+  </div>
 </div>
 
+<style>
+  .page__footer {
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">BoringOps</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+  .page__footer footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .site-footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .social-link {
+    color: rgba(232, 230, 227, 0.4);
+    font-size: 1.1rem;
+    transition: color 150ms ease;
+  }
+
+  .social-link:hover {
+    color: rgba(249, 115, 22, 0.8);
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    color: rgba(232, 230, 227, 0.4);
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 600px) {
+    .site-footer {
+      padding: 1.5rem 1rem;
+    }
+
+    .footer-copyright {
+      font-size: 0.7rem;
+    }
+  }
+</style>
+
+        <!-- Custom footer is in footer/custom.html -->
 
       </footer>
     </div>

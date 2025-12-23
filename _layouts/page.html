@@ -1,0 +1,138 @@
+---
+layout: default
+---
+
+<div class="page-container">
+  <header class="page-header">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="page-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
+
+  <div class="page-content">
+    {{ content }}
+  </div>
+</div>
+
+<style>
+  .page-container {
+    background: #000;
+    min-height: calc(100vh - 44px);
+  }
+
+  .page-header {
+    padding: 4rem 1.5rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgba(232, 230, 227, 0.9);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: rgba(232, 230, 227, 0.5);
+    margin: 1rem 0 0;
+    line-height: 1.6;
+  }
+
+  .page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .page-content h2 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(249, 115, 22, 0.8);
+    margin: 3rem 0 1.5rem;
+  }
+
+  .page-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .page-content h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: rgba(232, 230, 227, 0.85);
+    margin: 2rem 0 1rem;
+  }
+
+  .page-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(232, 230, 227, 0.65);
+    margin: 0 0 1.25rem;
+  }
+
+  .page-content ul, .page-content ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.25rem;
+  }
+
+  .page-content li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(232, 230, 227, 0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-content strong {
+    color: rgba(232, 230, 227, 0.85);
+    font-weight: 500;
+  }
+
+  .page-content a {
+    color: rgba(249, 115, 22, 1);
+    text-decoration: none;
+  }
+
+  .page-content a:hover {
+    text-decoration: underline;
+  }
+
+  .page-content blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid rgba(249, 115, 22, 0.5);
+    background: rgba(249, 115, 22, 0.03);
+  }
+
+  .page-content blockquote p {
+    margin: 0;
+    font-style: italic;
+    color: rgba(232, 230, 227, 0.7);
+  }
+
+  .page-content hr {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 3rem 0;
+  }
+
+  @media (max-width: 600px) {
+    .page-header {
+      padding: 3rem 1.25rem 2rem;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+    }
+
+    .page-content {
+      padding: 2rem 1.25rem 4rem;
+    }
+  }
+</style>

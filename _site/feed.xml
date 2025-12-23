@@ -1,1 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-11T10:43:22-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">BoringOps</title><subtitle>Premium IT consulting that transforms chaotic infrastructure into predictable, boring operations. No heroics required.</subtitle><author><name>Dan Zrobok</name></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4003/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4003/" rel="alternate" type="text/html" /><updated>2025-12-23T12:36:42-05:00</updated><id>http://localhost:4003/feed.xml</id><title type="html">Consulting Co</title><subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Professional consulting services.</subtitle><author><name>Consulting Co</name><email>hello@example.com</email></author><entry><title type="html">The Hidden Cost of Operational Heroics</title><link href="http://localhost:4003/2024/12/19/sample-article/" rel="alternate" type="text/html" title="The Hidden Cost of Operational Heroics" /><published>2024-12-19T00:00:00-05:00</published><updated>2024-12-19T00:00:00-05:00</updated><id>http://localhost:4003/2024/12/19/sample-article</id><content type="html" xml:base="http://localhost:4003/2024/12/19/sample-article/"><![CDATA[<p>Every organization has one. The engineer who answers pages at 3am. The operator who “just knows” how to fix the mysterious database issue. The hero.</p>
+
+<p>They are celebrated. They are indispensable. They are a symptom of systemic failure.</p>
+
+<h2 id="the-heroism-trap">The Heroism Trap</h2>
+
+<p>When someone consistently saves the day, two things happen simultaneously. First, the organization develops a dependency on that individual. Second, the underlying problems that require heroism never get fixed.</p>
+
+<blockquote>
+  <p>The presence of a hero is evidence that the system cannot sustain itself.</p>
+</blockquote>
+
+<p>This creates a feedback loop. The hero accumulates knowledge. The knowledge stays in their head. The system becomes more fragile. More heroism is required.</p>
+
+<h2 id="measuring-the-real-cost">Measuring the Real Cost</h2>
+
+<p>Organizations rarely calculate the true cost of operational heroism:</p>
+
+<ul>
+  <li><strong>Attention debt</strong> - Every interrupt fragments focus across the team</li>
+  <li><strong>Knowledge silos</strong> - Critical information exists only in one person’s memory</li>
+  <li><strong>Learned helplessness</strong> - Others stop developing competence because “someone will handle it”</li>
+  <li><strong>Burnout trajectory</strong> - Heroes eventually leave, taking everything with them</li>
+</ul>
+
+<p>The departure of a hero is not a personnel problem. It is an infrastructure event.</p>
+
+<h2 id="breaking-the-cycle">Breaking the Cycle</h2>
+
+<p>The solution is not to punish heroism. It is to make heroism unnecessary.</p>
+
+<p>This requires deliberate effort:</p>
+
+<ol>
+  <li>Document every intervention immediately after it happens</li>
+  <li>Treat each incident as a system defect, not a solved problem</li>
+  <li>Rotate on-call responsibilities even when it feels inefficient</li>
+  <li>Measure time-to-resolution by the second responder, not the first</li>
+</ol>
+
+<p>The goal is boredom. When operations become predictable, heroes become unnecessary.</p>
+
+<hr />
+
+<p><em>This is a sample article. Replace with actual content.</em></p>]]></content><author><name>Consulting Co</name><email>hello@example.com</email></author><summary type="html"><![CDATA[Every organization has one. The engineer who answers pages at 3am. The operator who “just knows” how to fix the mysterious database issue. The hero.]]></summary></entry></feed>

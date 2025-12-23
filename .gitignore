@@ -1,0 +1,13 @@
+# Jekyll build output
+_site/
+
+# Bundler
+.bundle/
+vendor/
+
+# Jekyll caches
+.jekyll-cache/
+.jekyll-metadata
+
+# macOS
+.DS_Store

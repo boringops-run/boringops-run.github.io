@@ -1,123 +1,74 @@
 # Site Settings
-title: "BoringOps"
-subtitle: "Consulting for Operational Calm"
-name: "BoringOps Consulting"
-description: "Premium IT consulting that transforms chaotic infrastructure into predictable, boring operations. No heroics required."
-url: "https://boringops.run"
+title: "Consulting Co"
+subtitle: "Placeholder Tagline Here"
+name: "Consulting Co"
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Professional consulting services."
+url: ""
 baseurl: ""
-repository: "boringops-run/boringops-run.github.io"
-logo: "/assets/images/logo.png"
+repository: ""
 
-# Theme Settings
+# Theme
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "dark"
 
-# Site Author/Company
+# Site Author
 author:
-  name: "Dan Zrobok"
-  avatar: "/assets/images/dan-zrobok.jpg"
-  bio: "Principal Consultant & Founder"
-  location: "Toronto, ON"
+  name: "Consulting Co"
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  location: "Lorem City, AB"
+  email: "hello@example.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:dan@boringops.run"
-    - label: "Philosophy"
-      icon: "fas fa-fw fa-book"
-      url: "https://boringops.sh"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/danzrobok"
+      url: "mailto:hello@example.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/boringops-hq"
+      url: "https://github.com/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/"
 
 # Site Footer
 footer:
   links:
-    - label: "Philosophy"
-      icon: "fas fa-fw fa-book"
-      url: "https://boringops.sh"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:dan@boringops.run"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/danzrobok"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/boringops-hq"
+      url: "https://github.com/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/"
 
 # Reading Files
 include:
-  - .htaccess
   - _pages
+
 exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - vendor
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - Capfile
-  - CHANGELOG
-  - config
   - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
+  - Gemfile.lock
+  - vendor
+  - README.md
   - LICENSE
-  - log
   - node_modules
-  - package.json
-  - Rakefile
-  - README
-  - tmp
+  - hero-prototype
+  - jekyll-hero
 
-keep_files:
-  - .git
-  - .svn
-
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-# Conversion
+# Build Settings
 markdown: kramdown
 highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
-# Markdown Processing
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-
-# Sass/SCSS
-sass:
-  sass_dir: _sass
-  style: compressed
-
-# Outputting
-permalink: /:categories/:title/
-paginate: 5
-paginate_path: /blog/page:num/
-timezone: America/Toronto
+permalink: pretty
 
 # Plugins
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jekyll-include-cache
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-archives
+
+# Pagination
+paginate: 10
+paginate_path: /page:num/
 
 # Archives
 category_archive:
@@ -127,38 +78,40 @@ tag_archive:
   type: liquid
   path: /tags/
 
-# HTML Compression
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
+# Collections
+collections:
+  services:
+    output: true
+    permalink: /services/:slug/
+  case_studies:
+    output: true
+    permalink: /case-studies/:slug/
 
 # Defaults
 defaults:
-  # All pages
-  - scope:
-      path: ""
-    values:
-      layout: single
   # _posts
   - scope:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: false
-      share: true
-      related: true
-      classes: wide
+      layout: post
+      author_profile: false
   # _pages
   - scope:
-      path: "_pages"
+      path: ""
       type: pages
     values:
       layout: single
       author_profile: false
+  # _services
+  - scope:
+      path: ""
+      type: services
+    values:
+      layout: single
+      author_profile: false
+      share: false
+      related: false
   # _case_studies
   - scope:
       path: ""
@@ -166,27 +119,23 @@ defaults:
     values:
       layout: single
       author_profile: false
-      share: true
-      classes: wide
+      share: false
+      related: false
 
-# Collections
-collections:
-  case_studies:
-    output: true
-    permalink: /case-studies/:slug/
+# Outputting
+timezone: America/New_York
 
-# SEO
-social:
-  type: Organization
-  name: BoringOps Consulting
-  links:
-    - "https://boringops.sh"
-    - "https://linkedin.com/in/danzrobok"
-    - "https://github.com/boringops-hq"
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed
 
-# Analytics (uncomment when ready)
-# analytics:
-#   provider: "google-gtag"
-#   google:
-#     tracking_id: "G-XXXXXXXXXX"
-#     anonymize_ip: false
+# Kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo

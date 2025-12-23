@@ -1,0 +1,285 @@
+---
+layout: default
+---
+
+<article class="service-page">
+  <header class="service-header">
+    <div class="service-header-inner">
+      {% if page.number %}
+      <span class="service-number">{{ page.number }}</span>
+      {% endif %}
+      <h1 class="service-title">{{ page.title }}</h1>
+      {% if page.question %}
+      <p class="service-question">{{ page.question }}</p>
+      {% endif %}
+      {% if page.summary %}
+      <p class="service-summary">{{ page.summary }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="service-body">
+    {{ content }}
+  </div>
+
+  {% if page.cta != false %}
+  <footer class="service-cta">
+    <div class="service-cta-inner">
+      <p>{{ page.cta_text | default: "This engagement begins with a conversation." }}</p>
+      <a href="/contact/">{{ page.cta_button | default: "Start a conversation" }}</a>
+    </div>
+  </footer>
+  {% endif %}
+</article>
+
+<style>
+  .service-page {
+    background: #000;
+    min-height: calc(100vh - 44px);
+  }
+
+  /* Header */
+  .service-header {
+    padding: 5rem 1.5rem 4rem;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
+      #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .service-header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .service-number {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    color: rgba(249, 115, 22, 0.6);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: rgba(232, 230, 227, 0.95);
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .service-question {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: rgba(249, 115, 22, 0.8);
+    margin: 1.5rem 0 0;
+    line-height: 1.4;
+  }
+
+  .service-summary {
+    font-size: 1.125rem;
+    color: rgba(232, 230, 227, 0.6);
+    margin: 1.5rem 0 0;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* Body */
+  .service-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .service-body h2 {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(249, 115, 22, 0.8);
+    margin: 4rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .service-body h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .service-body h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(232, 230, 227, 0.85);
+    margin: 2rem 0 0.75rem;
+  }
+
+  .service-body p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(232, 230, 227, 0.65);
+    margin: 0 0 1.25rem;
+  }
+
+  .service-body ul {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .service-body li {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: rgba(232, 230, 227, 0.6);
+    margin-bottom: 0.625rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .service-body li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 4px;
+    height: 4px;
+    background: rgba(249, 115, 22, 0.5);
+    border-radius: 50%;
+  }
+
+  .service-body strong {
+    color: rgba(232, 230, 227, 0.85);
+    font-weight: 500;
+  }
+
+  .service-body em {
+    color: rgba(232, 230, 227, 0.7);
+    font-style: italic;
+  }
+
+  .service-body blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid rgba(249, 115, 22, 0.5);
+    background: rgba(249, 115, 22, 0.03);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .service-body blockquote p {
+    margin: 0;
+    color: rgba(232, 230, 227, 0.75);
+  }
+
+  .service-body hr {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 3rem 0;
+  }
+
+  /* Constraint boxes */
+  .service-body .constraint-box {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(239, 68, 68, 0.03);
+    border: 1px solid rgba(239, 68, 68, 0.12);
+    border-radius: 4px;
+  }
+
+  .service-body .constraint-box h3 {
+    color: rgba(239, 68, 68, 0.8);
+    margin-top: 0;
+  }
+
+  /* Deliverables grid */
+  .service-body .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .service-body .deliverable-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+  }
+
+  .service-body .deliverable-item h4 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(232, 230, 227, 0.8);
+    margin: 0 0 0.5rem;
+  }
+
+  .service-body .deliverable-item p {
+    font-size: 0.8125rem;
+    margin: 0;
+    color: rgba(232, 230, 227, 0.5);
+  }
+
+  /* CTA */
+  .service-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(249, 115, 22, 0.06) 0%, transparent 60%),
+      #0a0a0a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .service-cta-inner p {
+    font-size: 1.125rem;
+    color: rgba(232, 230, 227, 0.7);
+    margin: 0 0 2rem;
+  }
+
+  .service-cta-inner a {
+    display: inline-block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    background: rgba(249, 115, 22, 1);
+    border-radius: 3px;
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.25);
+    transition: all 150ms ease;
+  }
+
+  .service-cta-inner a:hover {
+    background: rgba(249, 115, 22, 0.9);
+    box-shadow: 0 0 50px rgba(249, 115, 22, 0.35);
+    transform: translateY(-1px);
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .service-header {
+      padding: 3.5rem 1.25rem 3rem;
+    }
+
+    .service-title {
+      font-size: 1.75rem;
+    }
+
+    .service-question {
+      font-size: 1.125rem;
+    }
+
+    .service-body {
+      padding: 2rem 1.25rem;
+    }
+
+    .service-body .deliverables-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-cta {
+      padding: 4rem 1.25rem;
+    }
+  }
+</style>

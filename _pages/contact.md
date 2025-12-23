@@ -1,222 +1,10 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
+---
+layout: default
+title: "Contact"
+permalink: /contact/
+---
 
-<!-- begin _includes/seo.html --><title>Contact - Consulting Co</title>
-<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Professional consulting services.">
-
-
-  <meta name="author" content="Consulting Co">
-  
-
-
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Consulting Co">
-<meta property="og:title" content="Contact">
-<meta property="og:url" content="http://localhost:4003/contact/">
-
-
-  <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Professional consulting services.">
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="canonical" href="http://localhost:4003/contact/">
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- end _includes/seo.html -->
-
-
-
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Consulting Co Feed">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-  
-</script>
-
-<!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
-
-
-
-    <!-- start custom head snippets -->
-
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- end custom head snippets -->
-
-  </head>
-
-  <body class="layout--default">
-    <nav class="skip-links">
-  <ul>
-    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
-    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
-    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
-  </ul>
-</nav>
-
-    <header class="site-header" id="site-header">
-  <div class="header-inner">
-    <a href="/" class="header-brand">
-      <svg class="header-icon" viewBox="0 0 24 32" aria-hidden="true">
-        <path d="M8 0 L16 0 L20 28 L4 28 Z" fill="currentColor"/>
-        <rect x="2" y="28" width="20" height="4" fill="currentColor"/>
-        <circle cx="12" cy="26" r="2" fill="currentColor"/>
-        <rect x="11" y="4" width="2" height="20" fill="currentColor" opacity="0.4"/>
-      </svg>
-      <span class="header-text">BoringOps.Run</span>
-    </a>
-    <nav class="header-nav">
-      <a href="/services/" class="nav-link">Services</a>
-      <a href="/approach/" class="nav-link">Approach</a>
-      <a href="/articles/" class="nav-link">Articles</a>
-      <a href="/proof/" class="nav-link">Proof</a>
-      <a href="/contact/" class="nav-link">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #111;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    transition: opacity 150ms ease-out;
-  }
-
-  .site-header.scrolled {
-    opacity: 0.85;
-  }
-
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.625rem 1.5rem;
-    height: 44px;
-    box-sizing: border-box;
-  }
-
-  .header-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: rgba(232, 230, 227, 1);
-  }
-
-  .header-brand:hover {
-    color: rgba(232, 230, 227, 1);
-  }
-
-  .header-icon {
-    width: 14px;
-    height: 18px;
-    flex-shrink: 0;
-  }
-
-  .header-text {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-
-  .header-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-  }
-
-  .nav-link {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: rgba(232, 230, 227, 1);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-  }
-
-  .nav-link:hover {
-    color: rgba(249, 115, 22, 1);
-  }
-
-  @media (max-width: 600px) {
-    .header-inner {
-      padding: 0.5rem 1rem;
-      height: 40px;
-    }
-
-    .header-text {
-      display: none;
-    }
-
-    .header-nav {
-      gap: 1rem;
-    }
-
-    .nav-link {
-      font-size: 0.7rem;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  var header = document.getElementById('site-header');
-  var scrollThreshold = 50;
-  var ticking = false;
-
-  function updateHeader() {
-    if (window.scrollY > scrollThreshold) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(updateHeader);
-      ticking = true;
-    }
-  }, { passive: true });
-})();
-</script>
-
-
-    <div class="initial-content">
-      <div class="contact-page">
+<div class="contact-page">
   <header class="contact-header">
     <div class="contact-header-inner">
       <h1>Start a Conversation</h1>
@@ -233,22 +21,22 @@
         <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required="" />
+            <input type="text" id="name" name="name" required>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required="" />
+            <input type="email" id="email" name="email" required>
           </div>
 
           <div class="form-group">
             <label for="company">Company</label>
-            <input type="text" id="company" name="company" />
+            <input type="text" id="company" name="company">
           </div>
 
           <div class="form-group">
             <label for="role">Your Role</label>
-            <input type="text" id="role" name="role" placeholder="e.g., VP Engineering, CTO, Director of Platform" />
+            <input type="text" id="role" name="role" placeholder="e.g., VP Engineering, CTO, Director of Platform">
           </div>
 
           <div class="form-group">
@@ -566,103 +354,3 @@
     }
   }
 </style>
-
-
-    </div>
-
-    <div id="footer" class="page__footer">
-      <footer>
-        <div class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-social">
-      
-        
-          <a href="https://github.com/" rel="nofollow noopener noreferrer" class="social-link" aria-label="GitHub">
-            <i class="fab fa-fw fa-github" aria-hidden="true"></i>
-          </a>
-        
-      
-        
-          <a href="https://linkedin.com/" rel="nofollow noopener noreferrer" class="social-link" aria-label="LinkedIn">
-            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
-          </a>
-        
-      
-    </div>
-    <span class="footer-copyright">&copy; 2025 BoringOps.Run - This space intentionally left boring.</span>
-  </div>
-</div>
-
-<style>
-  .page__footer {
-    background: #000;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .page__footer footer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  .site-footer {
-    padding: 2rem 1.5rem;
-  }
-
-  .footer-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 1.25rem;
-  }
-
-  .social-link {
-    color: rgba(232, 230, 227, 0.4);
-    font-size: 1.1rem;
-    transition: color 150ms ease;
-  }
-
-  .social-link:hover {
-    color: rgba(249, 115, 22, 0.8);
-  }
-
-  .footer-copyright {
-    font-size: 0.75rem;
-    color: rgba(232, 230, 227, 0.4);
-    letter-spacing: 0.01em;
-  }
-
-  @media (max-width: 600px) {
-    .site-footer {
-      padding: 1.5rem 1rem;
-    }
-
-    .footer-copyright {
-      font-size: 0.7rem;
-    }
-  }
-</style>
-
-        <!-- Custom footer is in footer/custom.html -->
-
-      </footer>
-    </div>
-
-    
-  <script src="/assets/js/main.min.js"></script>
-
-
-
-
-
-
-
-
-
-  </body>
-</html>

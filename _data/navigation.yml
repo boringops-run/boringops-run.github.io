@@ -1,13 +1,42 @@
+# Main navigation (minimal-mistakes)
 main:
-  - title: "Home"
-    url: /
   - title: "Services"
     url: /services/
-  - title: "Our Approach"
+  - title: "Approach"
     url: /approach/
-  - title: "Case Studies"
-    url: /case-studies/
-  - title: "About"
-    url: /about/
+  - title: "Articles"
+    url: /articles/
+  - title: "Proof"
+    url: /proof/
   - title: "Contact"
     url: /contact/
+
+# Services sidebar
+services:
+  - title: "Our Services"
+    children:
+      - title: "Infrastructure Assessment"
+        url: /services/infrastructure-assessment/
+      - title: "Platform Engineering"
+        url: /services/platform-engineering/
+      - title: "Reliability Consulting"
+        url: /services/reliability-consulting/
+  - title: "Get Started"
+    children:
+      - title: "Contact Us"
+        url: /contact/
+
+# Case Studies sidebar
+case-studies:
+  - title: "Case Studies"
+    children:
+      - title: "Fintech Platform Migration"
+        url: /case-studies/fintech-platform-migration/
+      - title: "SaaS Reliability Overhaul"
+        url: /case-studies/saas-reliability-overhaul/
+  - title: "Work With Us"
+    children:
+      - title: "Our Services"
+        url: /services/
+      - title: "Contact Us"
+        url: /contact/

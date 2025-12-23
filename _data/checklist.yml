@@ -1,0 +1,182 @@
+# Checklist items for hero animation
+items:
+  - Lock deployment window
+  - Verify change approval
+  - Confirm maintenance mode
+  - Disable external traffic
+  - Drain load balancers
+  - Freeze background jobs
+  - Snapshot databases
+  - Verify snapshot integrity
+  - Check disk capacity
+  - Confirm no engineers required
+  - Confirm rollback artifacts
+  - Validate config templates
+  - Sync configuration repo
+  - Verify environment variables
+  - Pull release artifacts
+  - Validate artifact checksums
+  - Stage release binaries
+  - Verify dependency versions
+  - Confirm runtime versions
+  - Confirm deploy proceeding on schedule
+  - Check feature flags state
+  - Disable nonessential alerts
+  - Notify on-call rotation
+  - Confirm pager silence
+  - Lock schema migrations
+  - Validate migration order
+  - Run preflight checks
+  - Confirm cluster health
+  - Check node availability
+  - Confirm on-call still sleeping
+  - Verify quorum status
+  - Confirm leader election
+  - Validate service discovery
+  - Check DNS propagation
+  - Verify TLS certificates
+  - Rotate expiring certificates
+  - Reload certificate stores
+  - Confirm cipher support
+  - Validate secrets access
+  - Confirm security posture unchanged
+  - Sync secrets store
+  - Confirm key permissions
+  - Check encryption status
+  - Validate backup schedules
+  - Pause scheduled jobs
+  - Confirm job suspension
+  - Disable autoscaling
+  - Lock scaling policies
+  - Verify resource quotas
+  - Confirm system operating with margin
+  - Check CPU headroom
+  - Check memory headroom
+  - Check IO thresholds
+  - Confirm network capacity
+  - Validate firewall rules
+  - Verify security groups
+  - Confirm ingress rules
+  - Validate egress rules
+  - Check rate limits
+  - Confirm no tuning required
+  - Confirm throttling config
+  - Stage database migrations
+  - Run migration dry run
+  - Verify migration output
+  - Apply schema migrations
+  - Confirm migration success
+  - Unlock schema changes
+  - Deploy application services
+  - Deploy background workers
+  - Confirm deploy remains boring
+  - Deploy scheduled tasks
+  - Verify service startup
+  - Confirm process health
+  - Check startup logs
+  - Validate log ingestion
+  - Confirm metrics emission
+  - Verify tracing enabled
+  - Check error rates
+  - Validate health endpoints
+  - Confirm metrics behaving normally
+  - Confirm readiness probes
+  - Confirm liveness probes
+  - Re-enable autoscaling
+  - Unlock scaling policies
+  - Gradually restore traffic
+  - Monitor latency
+  - Monitor error budgets
+  - Confirm SLO compliance
+  - Verify cache connectivity
+  - Confirm no manual intervention occurred
+  - Warm critical caches
+  - Confirm cache hit rates
+  - Re-enable background jobs
+  - Resume scheduled tasks
+  - Validate job execution
+  - Confirm queue depth
+  - Check message lag
+  - Verify consumer offsets
+  - Confirm idempotency guards
+  - Confirm reclaimed engineer capacity
+  - Validate retry policies
+  - Check circuit breakers
+  - Confirm fallback behavior
+  - Verify feature flags
+  - Enable new feature flags
+  - Confirm flag propagation
+  - Monitor flag impact
+  - Validate user flows
+  - Run smoke tests
+  - Confirm user experience unchanged
+  - Confirm API responses
+  - Validate authentication
+  - Confirm authorization paths
+  - Check session handling
+  - Verify token issuance
+  - Confirm token expiry
+  - Check audit logging
+  - Validate audit events
+  - Confirm compliance hooks
+  - Confirm compliance without escalation
+  - Re-enable external alerts
+  - Confirm alert routing
+  - Validate alert thresholds
+  - Test alert firing
+  - Confirm alert recovery
+  - Monitor system stability
+  - Monitor resource usage
+  - Verify no memory leaks
+  - Check file descriptor usage
+  - Confirm stability without heroics
+  - Confirm thread counts
+  - Verify connection pools
+  - Check database performance
+  - Validate query plans
+  - Confirm index usage
+  - Monitor replication lag
+  - Verify replica health
+  - Confirm failover readiness
+  - Test failover simulation
+  - Confirm failure paths unused
+  - Restore normal traffic
+  - Confirm traffic balance
+  - Monitor geographic regions
+  - Validate regional health
+  - Confirm CDN behavior
+  - Verify cache invalidation
+  - Check edge propagation
+  - Validate client compatibility
+  - Confirm backward compatibility
+  - Confirm change now invisible
+  - Verify API versioning
+  - Check deprecation warnings
+  - Confirm no regressions
+  - Review deployment logs
+  - Archive deployment logs
+  - Tag release version
+  - Update release registry
+  - Confirm version reporting
+  - Verify build metadata
+  - Confirm deploy did not require explanation
+  - Update runbook notes
+  - Record deployment outcome
+  - Notify stakeholders
+  - Confirm business metrics
+  - Validate revenue paths
+  - Confirm billing integrity
+  - Verify payment processing
+  - Check webhook delivery
+  - Confirm integration health
+  - Confirm operational calm preserved
+  - Validate third-party deps
+  - Monitor partner endpoints
+  - Confirm SLA compliance
+  - Verify uptime metrics
+  - Check error budgets
+  - Confirm incident-free window
+  - Release maintenance mode
+  - Unlock deployment window
+  - Close deployment ticket
+  - Enjoy another Boring deployment
