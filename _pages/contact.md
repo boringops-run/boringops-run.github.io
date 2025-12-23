@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Contact"
+title: "Assessment"
 permalink: /contact/
 ---
 
@@ -12,90 +12,60 @@ permalink: /contact/
         <span class="prompt-text">ssh chaos@yourcompany</span>
         <span class="cursor"></span>
       </div>
-      <h1>Let's see what's broken.</h1>
+      <h1>Let's see what's actually broken.</h1>
       <p class="contact-intro">
-        This isn't a sales call. It's a fit assessment. We figure out if this work makes sense for your situation.
+        This is not a sales call. It determines whether a Chaos Assessment makes sense.
       </p>
     </div>
   </header>
 
   <section class="contact-main">
     <div class="contact-main-inner">
-      <div class="contact-form-section">
-        <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
+      <div class="contact-cta">
+        <div class="email-block">
+          <span class="email-label">Reach out directly</span>
+          <a href="mailto:hello@boringops.run" class="email-link">
+            <span class="email-text">hello@boringops.run</span>
+            <span class="email-arrow">&rarr;</span>
+          </a>
+        </div>
 
-          <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company">
-          </div>
-
-          <div class="form-group">
-            <label for="role">Your Role</label>
-            <input type="text" id="role" name="role" placeholder="e.g., VP Engineering, CTO, Director of Platform">
-          </div>
-
-          <div class="form-group">
-            <label for="interest">What brings you here?</label>
-            <select id="interest" name="interest">
-              <option value="">Select one...</option>
-              <option value="assessment">Chaos Assessment - understand where capacity is leaking</option>
-              <option value="tolerance">Chaos Tolerance Decision - force decisions about operational debt</option>
-              <option value="executive">Executive Interference Audit - address leadership impact on incidents</option>
-              <option value="stewardship">Ongoing Stewardship - interest in future retainer</option>
-              <option value="unsure">Not sure yet - exploring options</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="context">Context</label>
-            <textarea id="context" name="context" rows="5" placeholder="What's happening that brought you here? What have you tried? What would success look like?"></textarea>
-          </div>
-
-          <div class="form-group">
-            <button type="submit">Send Message</button>
-          </div>
-        </form>
+        <div class="context-hint">
+          <p>Include context:</p>
+          <ul>
+            <li>What's not working</li>
+            <li>Where time or trust is being lost</li>
+            <li>Your role and company</li>
+          </ul>
+        </div>
       </div>
 
-      <aside class="contact-sidebar">
-        <div class="sidebar-section">
+      <div class="contact-info">
+        <div class="info-card">
           <h3>What Happens Next</h3>
           <ol class="next-steps">
-            <li>Message received and reviewed</li>
-            <li>Brief response within 2 business days</li>
-            <li>If appropriate: 30-minute conversation to assess fit</li>
-            <li>If fit: scoping discussion and proposal</li>
+            <li>Email reviewed</li>
+            <li>Response within two business days</li>
+            <li>If aligned: short assessment call</li>
+            <li>If not: no follow-up</li>
           </ol>
         </div>
 
-        <div class="sidebar-section">
+        <div class="info-card info-card--warning">
           <h3>Before You Reach Out</h3>
           <p>
-            This work is not for everyone. If you're looking for reassurance,
-            a vendor comparison, or someone to implement tooling, this isn't the right fit.
+            This work is not advisory, implementation, or reassurance.
+            If you are looking for tools, validation, or vendor comparison,
+            this is not a fit.
           </p>
           <p>
-            If you're ready to surface uncomfortable truths and make binding decisions
-            about operational chaos, we should talk.
+            If you are prepared to surface real constraints and make binding
+            decisions about operational chaos, proceed.
           </p>
         </div>
+      </div>
 
-        <div class="sidebar-section sidebar-section--alt">
-          <h3>Direct Contact</h3>
-          <p class="direct-email">
-            <a href="mailto:hello@boringops.run">hello@boringops.run</a>
-          </p>
-        </div>
-      </aside>
     </div>
   </section>
 </div>
@@ -149,10 +119,10 @@ permalink: /contact/
     margin: 0 auto;
     opacity: 0;
     transform: translateY(15px);
-    animation: contact-fade-in 0.6s ease-out 0.1s forwards;
+    animation: fade-in 0.6s ease-out 0.1s forwards;
   }
 
-  @keyframes contact-fade-in {
+  @keyframes fade-in {
     to {
       opacity: 1;
       transform: translateY(0);
@@ -176,205 +146,246 @@ permalink: /contact/
 
   /* Main */
   .contact-main {
-    padding: 3rem 1.5rem 6rem;
+    padding: 4rem 1.5rem 6rem;
   }
 
   .contact-main-inner {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
   }
 
-  /* Form */
-  .contact-form-section {
-    background: #0a0a0a;
+  /* Email CTA */
+  .contact-cta {
+    opacity: 0;
+    animation: fade-in 0.5s ease-out 0.2s forwards;
+  }
+
+  .email-block {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(249, 115, 22, 0.02) 100%);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 8px;
     padding: 2.5rem;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+    transition: all 300ms ease;
   }
 
-  .form-group {
-    margin-bottom: 1.5rem;
+  .email-block:hover {
+    border-color: rgba(249, 115, 22, 0.4);
+    box-shadow: 0 0 60px rgba(249, 115, 22, 0.15);
   }
 
-  .form-group:last-child {
-    margin-bottom: 0;
-    margin-top: 2rem;
-  }
-
-  .form-group label {
+  .email-label {
     display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(249, 115, 22, 0.7);
+    margin-bottom: 1.25rem;
+  }
+
+  .email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: all 200ms ease;
+  }
+
+  .email-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(232, 230, 227, 0.95);
+    transition: all 200ms ease;
+  }
+
+  .email-arrow {
+    font-size: 1.25rem;
+    color: rgba(249, 115, 22, 0.7);
+    transform: translateX(0);
+    transition: all 200ms ease;
+  }
+
+  .email-link:hover .email-text {
+    color: rgba(249, 115, 22, 1);
+    text-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+  }
+
+  .email-link:hover .email-arrow {
+    color: rgba(249, 115, 22, 1);
+    transform: translateX(6px);
+  }
+
+  .context-hint {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+  }
+
+  .context-hint p {
     font-size: 0.8125rem;
     font-weight: 500;
+    color: rgba(232, 230, 227, 0.5);
+    margin: 0 0 0.75rem;
+  }
+
+  .context-hint ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .context-hint li {
+    font-size: 0.875rem;
     color: rgba(232, 230, 227, 0.7);
+    padding-left: 1.25rem;
     margin-bottom: 0.5rem;
+    position: relative;
   }
 
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 0.9375rem;
-    font-family: inherit;
-    color: rgba(232, 230, 227, 0.9);
-    background: #000;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    transition: border-color 150ms ease;
+  .context-hint li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba(249, 115, 22, 0.5);
   }
 
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: rgba(249, 115, 22, 0.5);
+  .context-hint li:last-child {
+    margin-bottom: 0;
   }
 
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: rgba(232, 230, 227, 0.3);
+  /* Info cards */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    opacity: 0;
+    animation: fade-in 0.5s ease-out 0.35s forwards;
   }
 
-  .form-group select {
-    cursor: pointer;
+  .info-card {
+    padding: 1.75rem;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    transition: all 250ms ease;
   }
 
-  .form-group select option {
-    background: #111;
-    color: rgba(232, 230, 227, 0.9);
+  .info-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(249, 115, 22, 0.1);
   }
 
-  .form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-
-  .form-group button {
-    width: 100%;
-    padding: 1rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    font-family: inherit;
-    color: #000;
-    background: rgba(249, 115, 22, 1);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 0 30px rgba(249, 115, 22, 0.2);
-    transition: all 150ms ease;
-  }
-
-  .form-group button:hover {
-    background: rgba(249, 115, 22, 0.9);
-    box-shadow: 0 0 40px rgba(249, 115, 22, 0.3);
-  }
-
-  /* Sidebar */
-  .contact-sidebar {
-    padding-top: 0.5rem;
-  }
-
-  .sidebar-section {
-    margin-bottom: 2.5rem;
-  }
-
-  .sidebar-section h3 {
+  .info-card h3 {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: rgba(249, 115, 22, 0.8);
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
   }
 
-  .sidebar-section p {
+  .info-card p {
     font-size: 0.875rem;
     line-height: 1.7;
     color: rgba(232, 230, 227, 0.55);
     margin: 0 0 0.75rem;
   }
 
-  .sidebar-section p:last-child {
+  .info-card p:last-child {
     margin-bottom: 0;
   }
 
+  .info-card--warning {
+    background: rgba(249, 115, 22, 0.03);
+    border-color: rgba(249, 115, 22, 0.1);
+  }
+
+  /* Next steps */
   .next-steps {
     list-style: none;
     padding: 0;
     margin: 0;
     counter-reset: steps;
+    position: relative;
+  }
+
+  .next-steps::before {
+    content: '';
+    position: absolute;
+    left: 0.5625rem;
+    top: 1.5rem;
+    bottom: 0.75rem;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(249, 115, 22, 0.3) 0%, rgba(249, 115, 22, 0.05) 100%);
+    z-index: 0;
   }
 
   .next-steps li {
     font-size: 0.875rem;
     line-height: 1.6;
     color: rgba(232, 230, 227, 0.6);
-    padding-left: 2rem;
-    margin-bottom: 0.75rem;
+    padding-left: 2.25rem;
+    margin-bottom: 1rem;
     position: relative;
     counter-increment: steps;
+    transition: all 200ms ease;
+  }
+
+  .next-steps li:hover {
+    color: rgba(232, 230, 227, 0.9);
+    transform: translateX(4px);
+  }
+
+  .next-steps li:last-child {
+    margin-bottom: 0;
   }
 
   .next-steps li::before {
     content: counter(steps);
     position: absolute;
     left: 0;
+    top: 0;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.6875rem;
-    color: rgba(249, 115, 22, 0.6);
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: rgba(249, 115, 22, 0.8);
     width: 1.25rem;
     height: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #0a0a0a;
     border: 1px solid rgba(249, 115, 22, 0.3);
     border-radius: 50%;
+    transition: all 200ms ease;
+    z-index: 1;
   }
 
-  .sidebar-section--alt {
-    padding: 1.5rem;
-    background: rgba(249, 115, 22, 0.03);
-    border: 1px solid rgba(249, 115, 22, 0.1);
-    border-radius: 4px;
-  }
-
-  .direct-email a {
-    color: rgba(249, 115, 22, 1);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .direct-email a:hover {
-    text-decoration: underline;
+  .next-steps li:hover::before {
+    background: #1a0f08;
+    border-color: rgba(249, 115, 22, 0.5);
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
   }
 
   /* Responsive */
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     .contact-main-inner {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
 
-    .contact-sidebar {
-      order: -1;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .sidebar-section {
-      margin-bottom: 0;
-    }
-
-    .sidebar-section--alt {
-      grid-column: span 2;
+    .email-text {
+      font-size: 1.25rem;
     }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 500px) {
     .contact-header {
       padding: 3.5rem 1.25rem 3rem;
     }
@@ -384,19 +395,15 @@ permalink: /contact/
     }
 
     .contact-main {
-      padding: 2rem 1.25rem 4rem;
+      padding: 2.5rem 1.25rem 4rem;
     }
 
-    .contact-form-section {
-      padding: 1.5rem;
+    .email-block {
+      padding: 2rem 1.5rem;
     }
 
-    .contact-sidebar {
-      grid-template-columns: 1fr;
-    }
-
-    .sidebar-section--alt {
-      grid-column: span 1;
+    .email-text {
+      font-size: 1.125rem;
     }
   }
 </style>
