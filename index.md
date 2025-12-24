@@ -6,6 +6,8 @@ permalink: /
 
 <section class="s-opening">
   <div class="opening-inner">
+  <p class="opening-line" data-typetext="An Operational Intervention for Engineering Organizations."><span class="opening-line-text"></span></p>
+    <p class="opening-line" data-typetext=""><span class="opening-line-text"></span></p>
     <p class="opening-line" data-typetext="Capacity leaks are identified."><span class="opening-line-text"></span></p>
     <p class="opening-line" data-typetext="Costs are made explicit."><span class="opening-line-text"></span></p>
     <p class="opening-punch" data-typetext="You decide what gets fixed and what stays broken."><span class="opening-punch-text"></span></p>
@@ -26,7 +28,7 @@ permalink: /
       <span>Falling forward the norm</span>
     </div>
     <p class="pattern-verdict">This isn't bad luck. It's architectural debt demanding payment.</p>
-    <p class="pattern-cta">BoringOps applies structural discipline to remove it. <a href="/approach/">Learn the approach →</a></p>
+    <p class="pattern-cta">Structural discipline removes it. <a href="/approach/">Learn the approach →</a></p>
   </div>
 </section>
 
