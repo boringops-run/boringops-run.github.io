@@ -53,22 +53,23 @@ permalink: /
         <span class="work-arrow">→</span>
       </a>
 
-      <a href="/services/executive-audit/" class="work-item">
+      <!-- <a href="/services/executive-audit/" class="work-item">
         <span class="work-num">03</span>
         <div class="work-content">
           <h3>Executive Interference Audit</h3>
           <p>How leadership presence extends recovery time.</p>
         </div>
         <span class="work-arrow">→</span>
-      </a>
+      </a> -->
 
-      <a href="/services/stewardship/" class="work-item">
-        <span class="work-num">04</span>
+      <div class="work-item work-item--soon">
+        <span class="work-num">03</span>
         <div class="work-content">
           <h3>Ongoing Stewardship</h3>
           <p>Pressure against drift. Boredom is maintained.</p>
+          <span class="work-soon">Coming soon</span>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -482,6 +483,38 @@ permalink: /
   .work-item:hover .work-arrow {
     color: rgba(249, 115, 22, 0.8);
     transform: translateX(4px);
+  }
+
+  .work-item--soon {
+    cursor: default;
+  }
+
+  .work-item--soon .work-num {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(232, 230, 227, 0.4);
+  }
+
+  .work-item--soon h3,
+  .work-item--soon p {
+    color: rgba(232, 230, 227, 0.35) !important;
+  }
+
+  .work-item--soon:hover h3 {
+    color: rgba(232, 230, 227, 0.35) !important;
+  }
+
+  .work-soon {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(232, 230, 227, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 2px;
   }
 
   .work-intro {
