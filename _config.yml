@@ -1,42 +1,31 @@
 # Site Settings
-title: "Consulting Co"
-subtitle: "Placeholder Tagline Here"
-name: "Consulting Co"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Professional consulting services."
-url: ""
+title: "BoringOps.Run"
+subtitle: "We calm operational chaos. You ship."
+name: "BoringOps.Run"
+description: "Independent operational diagnostics for teams trapped in complexity. No frameworks. No rewrites. Just the truth about why delivery is hard."
+url: "https://www.boringops.run"
 baseurl: ""
-repository: ""
 
 # Theme
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "dark"
 
+locale: "en-US"
+title_separator: "|"
+breadcrumbs: true
+words_per_minute: 180
+
+
 # Site Author
 author:
-  name: "BoringOps.Run"
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  location: "Lorem City, AB"
+  name: "BoringOps"
+  bio: "Operational diagnostics for teams stuck in permanent firefighting."
+  location: "Remote"
   email: "hello@boringops.run"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:hello@boringops.run"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/"
-
-# Site Footer
-footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/"
 
 # Reading Files
 include:
@@ -89,6 +78,13 @@ collections:
 
 # Defaults
 defaults:
+  - scope:
+      path: ""
+    values:
+      layout: single
+      author_profile: false
+      share: false
+      related: false
   # _posts
   - scope:
       path: ""
@@ -131,6 +127,21 @@ sass:
   sass_dir: _sass
   style: compressed
 
+feed:
+  path: atom.xml
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-taxonomy
+    tag: archive-taxonomy
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+
 # Kramdown
 kramdown:
   input: GFM
@@ -140,3 +151,11 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
+
+twitter:
+  username: danzrobok
+  card: summary_large_image
+
+social:
+  type: Organization
+  name: BoringOps
