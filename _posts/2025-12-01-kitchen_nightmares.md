@@ -4,6 +4,7 @@ title: "Why Kitchen Nightmares Works (and Most Ops Consulting Doesn't)"
 site: boringops.run
 last_updated: 2025-12-18
 pinned: true
+featured: true
 ---
 
 *Kitchen Nightmares* works because it operates as a true operational intervention.

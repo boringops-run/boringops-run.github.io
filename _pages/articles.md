@@ -5,62 +5,91 @@ layout: default
 ---
 
 <div class="articles-page">
-  <header class="articles-header">
-    <div class="articles-header-inner">
-      <div class="terminal-prompt">
-        <span class="prompt-symbol">$</span>
-        <span class="prompt-text">ls articles/</span>
-        <span class="cursor"></span>
-      </div>
-      <h1>Patterns observed.<br>Lessons extracted.</h1>
-
-      <p class="articles-intro">
-        The same failures show up everywhere. Here's what they look like up close.
-      </p>
-    </div>
-  </header>
+  <div class="articles-bg">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+  </div>
 
   {% assign all_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}
-  {% assign pinned = all_posts | where: "pinned", true %}
-  {% assign unpinned = all_posts | where_exp: "post", "post.pinned != true" %}
-  {% assign posts = pinned | concat: unpinned %}
-  {% assign featured = posts | first %}
-  {% assign rest = posts | slice: 1, posts.size %}
+  {% assign featured_post = all_posts | where: "featured", true | first %}
 
-  {% if posts.size > 0 %}
+  <header class="articles-header {% if featured_post %}has-featured{% endif %}">
+    <div class="articles-header-inner">
+      <div class="header-text">
+        <div class="terminal-prompt">
+          <span class="prompt-symbol">$</span>
+          <span class="prompt-text">ls articles/</span>
+          <span class="cursor"></span>
+        </div>
+        <h1>Patterns observed.<br>Lessons extracted.</h1>
 
-  <!-- Featured Article -->
-  <section class="featured-section">
-    <a href="{{ featured.url }}" class="featured-card">
-      <div class="featured-badge">Latest</div>
-      <div class="featured-content">
-        <span class="featured-date">{{ featured.date | date: "%B %d, %Y" }}</span>
-        <h2>{{ featured.title }}</h2>
-        <p>{{ featured.excerpt | strip_html | truncate: 200 }}</p>
-        <span class="featured-cta">Read article <span class="featured-arrow">→</span></span>
+        <p class="articles-intro">
+          The same failures show up everywhere. Here's what they look like up close.
+        </p>
+        <div class="header-accent"></div>
       </div>
-    </a>
-  </section>
 
-  {% if rest.size > 0 %}
+      {% if featured_post %}
+      <a href="{{ featured_post.url }}" class="featured-card">
+        <span class="featured-badge">Featured</span>
+        <span class="featured-date">{{ featured_post.date | date: "%B %d, %Y" }}</span>
+        <h2>{{ featured_post.title }}</h2>
+        {% if featured_post.excerpt %}
+        <p>{{ featured_post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+        <span class="featured-cta">Read article <span class="featured-arrow">→</span></span>
+      </a>
+      {% endif %}
+    </div>
+  </header>
+  {% assign non_featured = all_posts | where_exp: "post", "post.featured != true" %}
+  {% assign pinned_all = non_featured | where: "pinned", true %}
+  {% assign unpinned = non_featured | where_exp: "post", "post.pinned != true" %}
+  {% assign pinned = pinned_all | slice: 0, 4 %}
+
+  {% if all_posts.size > 0 %}
+
+  {% if pinned.size > 0 %}
+  <!-- Pinned Articles -->
+  <section class="pinned-section">
+    <div class="pinned-header">
+      <span class="pinned-label">Pinned</span>
+    </div>
+    <div class="pinned-grid pinned-count-{{ pinned.size }}">
+      {% for post in pinned %}
+      <a href="{{ post.url }}" class="pinned-card">
+        <span class="pinned-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+        <h3>{{ post.title }}</h3>
+        {% if post.excerpt %}
+        <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        {% endif %}
+        <span class="pinned-arrow">→</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if unpinned.size > 0 %}
   <!-- More Articles -->
   <section class="articles-list">
     <div class="articles-list-header">
-      <h2>More Writing</h2>
-      <span class="articles-count">{{ rest.size }} remaining</span>
+      <h2>All Articles</h2>
+      <span class="articles-count">{{ unpinned.size }} total</span>
     </div>
 
     <div class="articles-grid">
-      {% for post in rest %}
+      {% for post in unpinned %}
       <a href="{{ post.url }}" class="article-card">
-        <div class="article-card-inner">
-          <span class="article-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+        <div class="article-card-content">
+          <span class="article-date">{{ post.date | date: "%B %d, %Y" }}</span>
           <h3>{{ post.title }}</h3>
           {% if post.excerpt %}
-          <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+          <p>{{ post.excerpt | strip_html | truncate: 200 }}</p>
           {% endif %}
+          <span class="article-cta">Read article <span class="article-arrow">→</span></span>
         </div>
-        <span class="article-arrow">→</span>
       </a>
       {% endfor %}
     </div>
@@ -68,6 +97,7 @@ layout: default
   {% endif %}
 
   {% else %}
+  <!-- No posts at all -->
   <section class="articles-empty-state">
     <div class="empty-icon">
       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -86,21 +116,103 @@ layout: default
   .articles-page {
     background: #000;
     min-height: calc(100vh - 44px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background effects */
+  .articles-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(251, 146, 60, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(251, 146, 60, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 50%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 50%);
+  }
+
+  .bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+  }
+
+  .bg-glow-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+    animation: glow-drift 20s ease-in-out infinite;
+  }
+
+  .bg-glow-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(251, 146, 60, 0.1) 0%, transparent 70%);
+    top: 300px;
+    left: -150px;
+    animation: glow-drift 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes glow-drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 20px); }
   }
 
   /* Header */
   .articles-header {
+    position: relative;
     padding: 5rem 1.5rem 4rem;
-    background: linear-gradient(180deg, rgba(251, 146, 60, 0.03) 0%, transparent 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   }
 
   .articles-header-inner {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     opacity: 0;
     transform: translateY(15px);
     animation: articles-fade-in 0.6s ease-out 0.1s forwards;
+  }
+
+  .articles-header.has-featured .articles-header-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .header-text {
+    max-width: 100%;
+  }
+
+  .header-accent {
+    margin-top: 2.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(251, 146, 60, 0.5) 0%, rgba(251, 146, 60, 0.1) 50%, transparent 100%);
+    max-width: 200px;
+    opacity: 0;
+    animation: accent-grow 0.8s ease-out 0.5s forwards;
+  }
+
+  @keyframes accent-grow {
+    from {
+      opacity: 0;
+      max-width: 0;
+    }
+    to {
+      opacity: 1;
+      max-width: 200px;
+    }
   }
 
   @keyframes articles-fade-in {
@@ -108,6 +220,106 @@ layout: default
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Featured Card (in header) */
+  .featured-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.06) 0%, rgba(251, 146, 60, 0.02) 100%);
+    border: 1px solid rgba(251, 146, 60, 0.2);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 300ms ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+
+  .featured-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(251, 146, 60, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .featured-card:hover {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.1) 0%, rgba(251, 146, 60, 0.04) 100%);
+    border-color: rgba(251, 146, 60, 0.4);
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(251, 146, 60, 0.12);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgb(251, 146, 60);
+    background: rgba(251, 146, 60, 0.15);
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+  }
+
+  .featured-date {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.6875rem;
+    color: rgba(232, 230, 227, 0.4);
+    margin-bottom: 0.625rem;
+    position: relative;
+  }
+
+  .featured-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgba(232, 230, 227, 0.95);
+    margin: 0 0 0.625rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    transition: color 200ms ease;
+    position: relative;
+  }
+
+  .featured-card:hover h2 {
+    color: rgb(251, 146, 60);
+  }
+
+  .featured-card p {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(232, 230, 227, 0.5);
+    margin: 0 0 1rem;
+    flex: 1;
+    position: relative;
+  }
+
+  .featured-cta {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(251, 146, 60, 0.8);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative;
+  }
+
+  .featured-arrow {
+    transition: transform 200ms ease;
+  }
+
+  .featured-card:hover .featured-arrow {
+    transform: translateX(4px);
   }
 
   /* Terminal prompt */
@@ -123,6 +335,23 @@ layout: default
     background: rgba(251, 146, 60, 0.05);
     border: 1px solid rgba(251, 146, 60, 0.15);
     border-radius: 4px;
+    box-shadow:
+      0 2px 10px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(251, 146, 60, 0.1);
+    position: relative;
+  }
+
+  .terminal-prompt::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.2) 0%, transparent 50%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
   }
 
   .prompt-symbol {
@@ -130,11 +359,16 @@ layout: default
     font-weight: 600;
   }
 
+  .prompt-text {
+    position: relative;
+  }
+
   .cursor {
     width: 8px;
     height: 14px;
     background: rgba(251, 146, 60, 0.7);
     animation: blink 1s step-end infinite;
+    box-shadow: 0 0 8px rgba(251, 146, 60, 0.5);
   }
 
   @keyframes blink {
@@ -158,49 +392,21 @@ layout: default
     max-width: 520px;
   }
 
-  /* Featured Article */
-  .featured-section {
-    padding: 0 1.5rem 3rem;
+  /* Pinned Articles Grid */
+  .pinned-section {
+    position: relative;
+    padding: 0 1.5rem 2rem;
     max-width: 900px;
     margin: 0 auto;
   }
 
-  .featured-card {
-    display: block;
-    position: relative;
-    padding: 2.5rem;
-    background: linear-gradient(135deg, rgba(251, 146, 60, 0.06) 0%, rgba(251, 146, 60, 0.02) 100%);
-    border-radius: 12px;
-    text-decoration: none;
-    overflow: hidden;
+  .pinned-header {
+    margin-bottom: 1rem;
     opacity: 0;
-    transform: translateY(15px);
     animation: articles-fade-in 0.6s ease-out 0.2s forwards;
-    transition: all 300ms ease;
   }
 
-  .featured-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(251, 146, 60, 0.4) 0%, rgba(251, 146, 60, 0.1) 50%, rgba(251, 146, 60, 0.3) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .featured-card:hover {
-    background: linear-gradient(135deg, rgba(251, 146, 60, 0.1) 0%, rgba(251, 146, 60, 0.04) 100%);
-    transform: translateY(-4px);
-  }
-
-  .featured-badge {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+  .pinned-label {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.625rem;
     font-weight: 600;
@@ -212,60 +418,112 @@ layout: default
     border-radius: 3px;
   }
 
-  .featured-content {
-    max-width: 600px;
+  .pinned-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .featured-date {
+  .pinned-count-1 {
+    grid-template-columns: 1fr;
+    max-width: 50%;
+  }
+
+  .pinned-count-3 .pinned-card:first-child {
+    grid-column: span 2;
+  }
+
+  .pinned-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(251, 146, 60, 0.03);
+    border: 1px solid rgba(251, 146, 60, 0.15);
+    border-radius: 8px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 250ms ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .pinned-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: radial-gradient(circle at 50% 0%, rgba(251, 146, 60, 0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+
+  .pinned-card:nth-child(1) { animation: articles-fade-in 0.5s ease-out 0.25s forwards; }
+  .pinned-card:nth-child(2) { animation: articles-fade-in 0.5s ease-out 0.35s forwards; }
+  .pinned-card:nth-child(3) { animation: articles-fade-in 0.5s ease-out 0.45s forwards; }
+  .pinned-card:nth-child(4) { animation: articles-fade-in 0.5s ease-out 0.55s forwards; }
+
+  .pinned-card:hover {
+    background: rgba(251, 146, 60, 0.06);
+    border-color: rgba(251, 146, 60, 0.35);
+    transform: translateY(-4px);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(251, 146, 60, 0.08);
+  }
+
+  .pinned-card:hover::after {
+    opacity: 1;
+  }
+
+  .pinned-date {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.6875rem;
     color: rgba(232, 230, 227, 0.4);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
-  .featured-card h2 {
-    font-size: 1.625rem;
-    font-weight: 700;
+  .pinned-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
     color: rgba(232, 230, 227, 0.95);
-    margin: 0 0 1rem;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
     transition: color 200ms ease;
   }
 
-  .featured-card:hover h2 {
+  .pinned-card:hover h3 {
     color: rgb(251, 146, 60);
   }
 
-  .featured-card p {
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: rgba(232, 230, 227, 0.55);
-    margin: 0 0 1.5rem;
+  .pinned-card p {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: rgba(232, 230, 227, 0.5);
+    margin: 0;
+    flex: 1;
   }
 
-  .featured-cta {
-    font-size: 0.875rem;
-    font-weight: 500;
+  .pinned-arrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1rem;
+    color: rgba(251, 146, 60, 0.4);
+    transition: all 200ms ease;
+    opacity: 0;
+  }
+
+  .pinned-card:hover .pinned-arrow {
+    opacity: 1;
     color: rgba(251, 146, 60, 0.8);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .featured-arrow {
-    transition: transform 200ms ease;
-  }
-
-  .featured-card:hover .featured-arrow {
-    transform: translateX(4px);
+    transform: translateX(2px);
   }
 
   /* Articles List */
   .articles-list {
+    position: relative;
     padding: 3rem 1.5rem;
     max-width: 900px;
     margin: 0 auto;
@@ -301,61 +559,102 @@ layout: default
   .articles-grid {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
   }
 
   .article-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 1.75rem;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-left: 2px solid rgba(251, 146, 60, 0.2);
-    border-radius: 0 4px 4px 0;
+    display: block;
+    position: relative;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.04) 0%, rgba(251, 146, 60, 0.01) 100%);
+    border-radius: 10px;
     text-decoration: none;
-    transition: all 200ms ease;
+    overflow: hidden;
     opacity: 0;
-    transform: translateX(-10px);
+    transform: translateY(15px);
+    transition: all 300ms ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
 
-  .article-card:nth-child(1) { animation: article-slide-in 0.5s ease-out 0.35s forwards; }
-  .article-card:nth-child(2) { animation: article-slide-in 0.5s ease-out 0.45s forwards; }
-  .article-card:nth-child(3) { animation: article-slide-in 0.5s ease-out 0.55s forwards; }
-  .article-card:nth-child(4) { animation: article-slide-in 0.5s ease-out 0.65s forwards; }
-  .article-card:nth-child(5) { animation: article-slide-in 0.5s ease-out 0.75s forwards; }
-  .article-card:nth-child(n+6) { animation: article-slide-in 0.5s ease-out 0.85s forwards; }
+  .article-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.25) 0%, rgba(251, 146, 60, 0.05) 50%, rgba(251, 146, 60, 0.15) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background 300ms ease;
+  }
 
-  @keyframes article-slide-in {
+  .article-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(251, 146, 60, 0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+
+  .article-card:nth-child(1) { animation: article-fade-in 0.5s ease-out 0.4s forwards; }
+  .article-card:nth-child(2) { animation: article-fade-in 0.5s ease-out 0.5s forwards; }
+  .article-card:nth-child(3) { animation: article-fade-in 0.5s ease-out 0.6s forwards; }
+  .article-card:nth-child(4) { animation: article-fade-in 0.5s ease-out 0.7s forwards; }
+  .article-card:nth-child(n+5) { animation: article-fade-in 0.5s ease-out 0.8s forwards; }
+
+  @keyframes article-fade-in {
     to {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
 
   .article-card:hover {
-    background: rgba(251, 146, 60, 0.03);
-    border-left-color: rgba(251, 146, 60, 0.6);
-    transform: translateX(4px);
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.08) 0%, rgba(251, 146, 60, 0.02) 100%);
+    transform: translateY(-5px);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.35),
+      0 0 40px rgba(251, 146, 60, 0.1);
   }
 
-  .article-card-inner {
-    flex: 1;
+  .article-card:hover::before {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.4) 0%, rgba(251, 146, 60, 0.1) 50%, rgba(251, 146, 60, 0.25) 100%);
+  }
+
+  .article-card:hover::after {
+    opacity: 1;
+  }
+
+  .article-card-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
   }
 
   .article-date {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.6875rem;
-    color: rgba(232, 230, 227, 0.35);
+    color: rgba(232, 230, 227, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .article-card h3 {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: rgba(232, 230, 227, 0.9);
-    margin: 0 0 0.5rem;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: rgba(232, 230, 227, 0.95);
+    margin: 0 0 0.75rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
     transition: color 200ms ease;
   }
 
@@ -364,23 +663,26 @@ layout: default
   }
 
   .article-card p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: rgba(232, 230, 227, 0.55);
+    margin: 0 0 1.25rem;
+  }
+
+  .article-cta {
     font-size: 0.875rem;
-    line-height: 1.6;
-    color: rgba(232, 230, 227, 0.5);
-    margin: 0;
+    font-weight: 500;
+    color: rgba(251, 146, 60, 0.8);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .article-arrow {
-    font-size: 1.25rem;
-    color: rgba(251, 146, 60, 0.4);
-    margin-left: 1.5rem;
-    transition: all 200ms ease;
-    opacity: 0;
+    transition: transform 200ms ease;
   }
 
   .article-card:hover .article-arrow {
-    opacity: 1;
-    color: rgba(251, 146, 60, 0.8);
     transform: translateX(4px);
   }
 
@@ -447,6 +749,22 @@ layout: default
   }
 
   /* Responsive */
+  @media (max-width: 768px) {
+    .articles-header.has-featured .articles-header-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .featured-card {
+      padding: 1.5rem;
+    }
+
+    .featured-card h2 {
+      font-size: 1.125rem;
+      padding-right: 4rem;
+    }
+  }
+
   @media (max-width: 600px) {
     .articles-header {
       padding: 3.5rem 1.25rem 3rem;
@@ -456,28 +774,36 @@ layout: default
       font-size: 1.75rem;
     }
 
-    .featured-section {
-      padding: 0 1.25rem 2rem;
-    }
-
-    .featured-card {
-      padding: 1.5rem;
-    }
-
-    .featured-badge {
-      top: 1rem;
-      right: 1rem;
-      font-size: 0.5625rem;
-      padding: 0.25rem 0.5rem;
-    }
-
-    .featured-card h2 {
-      font-size: 1.25rem;
-      padding-right: 3rem;
-    }
-
     .featured-card p {
-      font-size: 0.875rem;
+      display: none;
+    }
+
+    .pinned-section {
+      padding: 0 1.25rem 1.5rem;
+    }
+
+    .pinned-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pinned-count-1 {
+      max-width: 100%;
+    }
+
+    .pinned-count-3 .pinned-card:first-child {
+      grid-column: span 1;
+    }
+
+    .pinned-card {
+      padding: 1.25rem;
+    }
+
+    .pinned-card p {
+      display: none;
+    }
+
+    .pinned-arrow {
+      display: none;
     }
 
     .articles-list {
@@ -485,15 +811,15 @@ layout: default
     }
 
     .article-card {
-      padding: 1.25rem;
+      padding: 1.5rem;
+    }
+
+    .article-card h3 {
+      font-size: 1.125rem;
     }
 
     .article-card p {
-      display: none;
-    }
-
-    .article-arrow {
-      display: none;
+      font-size: 0.875rem;
     }
   }
 </style>
