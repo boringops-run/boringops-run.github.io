@@ -193,6 +193,8 @@ layout: default
 
   .header-text {
     max-width: 100%;
+    min-width: 0;
+    display: block;
   }
 
   .header-accent {
@@ -751,12 +753,21 @@ layout: default
   /* Responsive */
   @media (max-width: 768px) {
     .articles-header.has-featured .articles-header-inner {
-      grid-template-columns: 1fr;
+      display: flex !important;
+      flex-direction: column !important;
       gap: 2rem;
     }
 
-    .featured-card {
+    .articles-header .header-text {
+      display: block !important;
+      width: 100% !important;
+      order: 1;
+    }
+
+    .articles-header .featured-card {
       padding: 1.5rem;
+      width: 100%;
+      order: 2;
     }
 
     .featured-card h2 {
@@ -770,6 +781,7 @@ layout: default
       padding: 3.5rem 1.25rem 3rem;
     }
 
+    .header-text h1,
     .articles-header h1 {
       font-size: 1.75rem;
     }
