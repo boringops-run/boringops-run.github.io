@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Your Build System Is a Confession"
-excerpt: "You didn't hire three infrastructure engineers because you needed them. You hired them because no one was allowed to say no."
+excerpt: "You have a swipe app. Why do you have 300 build targets?"
 tags: [boringops, ci, architecture, governance, complexity]
 classes: wide
 author: Dan Zrobok
