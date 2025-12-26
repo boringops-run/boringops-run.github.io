@@ -16,8 +16,13 @@ permalink: /approach/
       <p class="approach-intro">
         Not the thing you think is broken.
         The actual constraint.
-
       </p>
+      <a href="/miba/" class="miba-explainer">
+        <span class="miba-label">MakeInfrastructureBoringAgain.com</span>
+        <span class="miba-title">How we find the real constraint</span>
+        <span class="miba-desc">Evidence first. Decisions follow. 60s interactive explainer.</span>
+        <span class="miba-arrow">→</span>
+      </a>
     </div>
   </header>
 
@@ -283,6 +288,66 @@ permalink: /approach/
     color: rgba(232, 230, 227, 0.55);
     margin: 1.5rem 0 0;
     max-width: 520px;
+  }
+
+  .miba-explainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(251, 146, 60, 0.04);
+    border: 1px solid rgba(251, 146, 60, 0.15);
+    border-radius: 6px;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .miba-explainer:hover {
+    background: rgba(251, 146, 60, 0.08);
+    border-color: rgba(251, 146, 60, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .miba-label {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 146, 60, 0.6);
+  }
+
+  .miba-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: rgba(232, 230, 227, 0.9);
+    transition: color 0.2s ease;
+  }
+
+  .miba-explainer:hover .miba-title {
+    color: rgba(251, 146, 60, 1);
+  }
+
+  .miba-desc {
+    font-size: 0.875rem;
+    color: rgba(232, 230, 227, 0.5);
+  }
+
+  .miba-arrow {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: rgba(251, 146, 60, 0.4);
+    transition: all 0.2s ease;
+  }
+
+  .miba-explainer:hover .miba-arrow {
+    color: rgba(251, 146, 60, 0.9);
+    transform: translateY(-50%) translateX(4px);
   }
 
   /* Sections */
