@@ -100,16 +100,25 @@ permalink: /
 <section class="s-articles">
   <div class="articles-inner">
     <h2>Articles</h2>
-    <div class="articles-list">
-      {% for post in site.posts limit:3 %}
-      <a href="{{ post.url }}" class="article-item">
-        <span class="article-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+    <div class="articles-grid">
+      {% assign featured_posts = site.posts | where: "featured", true %}
+      {% assign pinned_posts = site.posts | where: "pinned", true | where_exp: "p", "p.featured != true" %}
+      {% assign regular_posts = site.posts | where_exp: "p", "p.pinned != true and p.featured != true" %}
+      {% assign sorted_posts = featured_posts | concat: pinned_posts | concat: regular_posts %}
+      {% for post in sorted_posts limit:9 %}
+      <a href="{{ post.url }}" class="article-card{% if post.featured %} article-card--featured{% elsif post.pinned %} article-card--pinned{% endif %}">
+        {% if post.featured %}
+        <span class="article-tag article-tag--featured">Featured</span>
+        {% elsif post.pinned %}
+        <span class="article-tag article-tag--pinned">Pinned</span>
+        {% endif %}
         <h3>{{ post.title }}</h3>
-        {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 120 }}</p>{% endif %}
+        {% if post.excerpt %}<p>{{ post.excerpt | strip_html }}</p>{% endif %}
+        <span class="article-arrow">→</span>
       </a>
       {% endfor %}
     </div>
-    {% if site.posts.size > 3 %}
+    {% if sorted_posts.size > 9 %}
     <a href="/articles/" class="articles-more">All Articles →</a>
     {% endif %}
   </div>
@@ -631,7 +640,7 @@ permalink: /
   }
 
   .articles-inner {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
@@ -641,55 +650,153 @@ permalink: /
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: rgba(249, 115, 22, 0.8);
-    margin: 0 0 2rem;
+    margin: 0 0 2.5rem;
   }
 
-  .articles-list {
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .article-card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .article-item {
-    display: block;
     text-decoration: none;
-    padding: 1.25rem 1.5rem;
-    margin: 0 -1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 4px;
-    border-left: 2px solid transparent;
-    transition: all 150ms ease;
+    transition: all 0.25s ease;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
-  .article-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-left-color: rgba(249, 115, 22, 0.5);
+  .article-card.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .article-date {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.7rem;
-    color: rgba(232, 230, 227, 0.4);
-    display: block;
-    margin-bottom: 0.375rem;
+  .article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(249, 115, 22, 0) 0%, rgba(249, 115, 22, 0.5) 50%, rgba(249, 115, 22, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
   }
 
-  .article-item h3 {
-    font-size: 1rem;
-    font-weight: 500;
+  .article-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(249, 115, 22, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .article-card:hover::before {
+    opacity: 1;
+  }
+
+  .article-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
     color: rgba(232, 230, 227, 0.9);
-    margin: 0 0 0.375rem;
-    transition: color 150ms ease;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+    transition: color 0.2s ease;
   }
 
-  .article-item:hover h3 {
+  .article-card:hover h3 {
     color: rgba(249, 115, 22, 1);
   }
 
-  .article-item > p {
-    font-size: 0.875rem;
-    line-height: 1.6;
-    color: rgba(232, 230, 227, 0.55);
-    margin: 0;
+  .article-card > p {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: rgba(232, 230, 227, 0.5);
+    margin: 0 0 0.75rem;
+  }
+
+  .article-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    color: rgba(249, 115, 22, 0.7);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 50%;
+    align-self: flex-end;
+    transition: all 0.25s ease;
+  }
+
+  .article-card:hover .article-arrow {
+    color: #000;
+    background: rgba(249, 115, 22, 0.9);
+    border-color: rgba(249, 115, 22, 1);
+    transform: translateX(4px);
+    box-shadow: 0 0 16px rgba(249, 115, 22, 0.4);
+  }
+
+  /* Article tags */
+  .article-tag {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 0.625rem;
+    align-self: flex-start;
+  }
+
+  .article-tag--featured {
+    color: #000;
+    background: rgba(249, 115, 22, 0.9);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+  }
+
+  .article-tag--pinned {
+    color: rgba(249, 115, 22, 1);
+    background: rgba(249, 115, 22, 0.15);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+  }
+
+  /* Featured card - prominent with glow */
+  .article-card--featured {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(249, 115, 22, 0.02) 100%);
+    border-color: rgba(249, 115, 22, 0.3);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.08), inset 0 1px 0 rgba(249, 115, 22, 0.1);
+  }
+
+  .article-card--featured::before {
+    opacity: 0.6;
+  }
+
+  .article-card--featured:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.15), inset 0 1px 0 rgba(249, 115, 22, 0.15);
+  }
+
+  /* Pinned card - subtle distinction */
+  .article-card--pinned {
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(249, 115, 22, 0.15);
+  }
+
+  .article-card--pinned::before {
+    opacity: 0.3;
+  }
+
+  .article-card--pinned:hover {
+    border-color: rgba(249, 115, 22, 0.35);
   }
 
   .articles-more {
@@ -697,13 +804,25 @@ permalink: /
     font-size: 0.8125rem;
     color: rgba(249, 115, 22, 0.8);
     text-decoration: none;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     padding: 0.5rem 0;
     transition: color 150ms ease;
   }
 
   .articles-more:hover {
     color: rgba(249, 115, 22, 1);
+  }
+
+  @media (max-width: 800px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 550px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* Boundary */
@@ -1114,6 +1233,30 @@ permalink: /
         });
       }, { threshold: 0.3 });
       patternObserver.observe(patternSection);
+    }
+
+    // Article cards staggered reveal
+    var articleCards = document.querySelectorAll('.article-card');
+    if (articleCards.length) {
+      var articlesObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            // Stagger by row then column for a wave effect
+            var card = entry.target;
+            var idx = Array.from(articleCards).indexOf(card);
+            var row = Math.floor(idx / 3);
+            var col = idx % 3;
+            var delay = (row * 80) + (col * 60);
+            setTimeout(function() {
+              card.classList.add('visible');
+            }, delay);
+            articlesObserver.unobserve(card);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+      articleCards.forEach(function(card) {
+        articlesObserver.observe(card);
+      });
     }
   }
 
