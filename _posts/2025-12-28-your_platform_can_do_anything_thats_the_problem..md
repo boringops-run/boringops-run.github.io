@@ -7,7 +7,7 @@ tags: [architecture, complexity, operations]
 layout: post
 classes: wide
 author: Dan Zrobok
-date: 2025-12-26
+date: 2025-12-28
 ---
 
 Your API gateway is running business logic.
