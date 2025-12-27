@@ -8,6 +8,7 @@ layout: post
 classes: wide
 author: Dan Zrobok
 date: 2025-12-21
+pinned : true
 ---
 
 Your senior engineer wrote a doc eighteen months ago explaining exactly what was wrong with the deployment pipeline. It had root causes, proposed fixes, and a rough estimate of engineering hours lost per quarter.
