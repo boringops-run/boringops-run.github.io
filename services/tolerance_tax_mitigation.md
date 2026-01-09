@@ -10,6 +10,9 @@ last_reviewed: 2025-01-09
 owner: BoringOps
 maturity_notes: New offering. Follows completed Tolerance Decision.
 layout: service
+number: "03"
+question: "Are you overpaying for the mess you chose to keep?"
+summary: "Reduces the operational cost of chaos you've decided to tolerate. Finds cheaper ways to live with dysfunction you've committed to keeping."
 ---
 
 ## Purpose

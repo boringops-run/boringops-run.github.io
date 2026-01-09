@@ -2,7 +2,7 @@
 layout: service
 title: "Ongoing Stewardship"
 permalink: /services/stewardship/
-number: "04"
+number: "∞"
 question: "How do you keep it boring?"
 summary: "Senior oversight to prevent drift and entropy after decisions are made. Pressure on system shape and decision quality. This is governance, not a project."
 cta: false

@@ -75,29 +75,30 @@ permalink: /services/
       <span class="service-card-cta">Learn more →</span>
     </a>
 
-    <!-- <a href="/services/executive-audit/" class="service-card">
+    <a href="/services/tolerance_tax_mitigation/" class="service-card" data-num="03">
       <div class="service-card-inner">
         <span class="service-card-number">03</span>
-        <h2>Executive Interference Audit</h2>
-        <p class="service-card-question">How does leadership extend incidents?</p>
+        <h2>Tolerance Tax Mitigation</h2>
+        <p class="service-card-question">Are you overpaying for the mess you chose to keep?</p>
         <p class="service-card-desc">
-          Identifies how executive presence, escalation patterns, and authority misuse
-          mechanically slow recovery. Produces explicit constraints on leadership behavior
-          during incidents. This is not coaching. It is control-plane separation.
+          Reduces the ongoing cost of chaos you've decided to tolerate. For each workaround,
+          finds a cheaper alternative that achieves the same organizational goal at lower
+          operational burden. This is comparison shopping on dysfunction.
         </p>
         <ul class="service-card-outputs">
-          <li>Executive behavior briefing</li>
-          <li>Leadership do / don’t constraints</li>
-          <li>Incident authority model</li>
+          <li>Mitigation Register</li>
+          <li>Cost comparison per tolerated item</li>
+          <li>Decision record</li>
         </ul>
         <span class="service-card-duration">2–3 weeks</span>
+        <span class="service-card-prereq">Requires Tolerance Decision</span>
       </div>
       <span class="service-card-cta">Learn more →</span>
-    </a> -->
+    </a>
 
-    <div class="service-card service-card--coming" data-num="03">
+    <div class="service-card service-card--coming" data-num="∞">
       <div class="service-card-inner">
-        <span class="service-card-number">03</span>
+        <span class="service-card-number">∞</span>
         <h2>Ongoing Stewardship</h2>
         <p class="service-card-question">How do you prevent drift?</p>
         <p class="service-card-desc">
@@ -128,6 +129,12 @@ permalink: /services/
         <div class="path-arrow">→</div>
         <div class="path-step">
           <span class="path-num">3</span>
+          <span class="path-label">Tax Mitigation</span>
+          <span class="path-note">Optional</span>
+        </div>
+        <div class="path-arrow">→</div>
+        <div class="path-step">
+          <span class="path-num">∞</span>
           <span class="path-label">Stewardship</span>
           <span class="path-note">Ongoing</span>
         </div>

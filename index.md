@@ -55,17 +55,17 @@ permalink: /
         <span class="work-arrow">→</span>
       </a>
 
-      <!-- <a href="/services/executive-audit/" class="work-item">
+      <a href="/services/tolerance_tax_mitigation/" class="work-item">
         <span class="work-num">03</span>
         <div class="work-content">
-          <h3>Executive Interference Audit</h3>
-          <p>How leadership presence extends recovery time.</p>
+          <h3>Tolerance Tax Mitigation</h3>
+          <p>Cheaper ways to live with what you chose to keep.</p>
         </div>
         <span class="work-arrow">→</span>
-      </a> -->
+      </a>
 
       <div class="work-item work-item--soon">
-        <span class="work-num">03</span>
+        <span class="work-num">∞</span>
         <div class="work-content">
           <h3>Ongoing Stewardship</h3>
           <p>Pressure against drift. Boredom is maintained.</p>
