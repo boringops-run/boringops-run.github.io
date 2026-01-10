@@ -17,29 +17,27 @@ summary: "Reduces the operational cost of chaos you've decided to tolerate. Find
 
 ## Purpose
 
-To reduce the ongoing tax of chaos the organization has deliberately chosen to keep.
+To reduce the ongoing tax of chaos the organization has chosen to keep.
 
-The Tolerance Decision separates chaos into two categories: what will be eliminated and what will remain. This engagement addresses what remains. For each tolerated item, it identifies the current coping mechanism, its fully-loaded cost, and a simpler alternative that achieves the same organizational workaround at lower operational burden.
+The Tolerance Decision separates chaos into two categories: what will be eliminated and what will remain. This engagement addresses what remains. For each tolerated item, it identifies the current coping mechanism, its fully-loaded cost, and finds a simpler alternative that achieves the same organizational workaround at lower operational burden.
 
 This is not about fixing root causes. The root causes were already deemed unfixable or not worth fixing. This is about paying less to live with them.
 
-Most tolerated chaos persists without scrutiny. The workaround becomes "the way things are done," its cost hidden in headcount, toil, and quiet burnout. No one audits it. No one challenges it. It survives because questioning it feels like questioning the original decision to tolerate. This engagement exists to surface those costs and force a second look, not at the problem, but at how expensively the organization has chosen to live with it.
-
 ## Who This Is For
 
-This engagement is for organizations that have already done the hard work of a Tolerance Decision, accepted that some dysfunction will remain, but are tired of paying crisis-era prices to live with it. The chaos was triaged. The decision was made. Now the question is whether you keep overpaying for workarounds chosen under duress, or find cheaper ways to cope with the mess you've committed to keeping.
+Organizations that have completed a Tolerance Decision, accepted that some dysfunction will remain, but are tired of paying crisis-era prices to live with it. The chaos was triaged. The decision was made. Now the question is whether you keep overpaying for workarounds chosen under duress, or find cheaper ways to cope.
 
 ## Prerequisite
 
 This work follows a completed Chaos Tolerance Decision.
 
-The Tolerance Decision established which chaos the organization will continue to carry. This engagement takes those tolerated items and finds cheaper ways to cope with them.
+The Tolerance Decision established which chaos the organization will continue to carry. This engagement takes those tolerated items and finds cheaper ways to cope with them. Organizations that have not yet separated "eliminate" from "tolerate" will find themselves optimizing workarounds for problems they should have killed instead.
 
 ## What This Produces
 
 For each tolerated source of chaos, this engagement produces a **Mitigation Option**: a documented alternative to the current workaround that achieves the same result with lower complexity, lower maintenance burden, or lower operational cost.
 
-The output is a **Mitigation Register** (the inventory of what you are choosing to keep paying for) containing:
+The output is a **Mitigation Register** containing:
 
 - The tolerated chaos item (from the Tolerance Decision)
 - The current coping mechanism and its observable cost
@@ -47,7 +45,7 @@ The output is a **Mitigation Register** (the inventory of what you are choosing 
 - The expected reduction in the tolerated tax
 - Any tradeoffs or constraints introduced by the alternative
 
-This is comparison shopping on workarounds. It exposes what the organization is actually paying for dysfunction it already accepted, and offers a cheaper way to keep paying it.
+This is comparison shopping on workarounds. It exposes what the organization is actually paying for dysfunction it already accepted, and offers a cheaper way to keep paying it. The Mitigation Register is not an analysis artifact. It is an operational balance sheet of accepted debt, priced and presented for decision.
 
 ## Decisions Forced
 
@@ -60,9 +58,7 @@ During this engagement, leadership decides:
 
 Every tolerated item receives a mitigation option. Leadership chooses which to accept. Rejected options are documented as conscious decisions to continue paying the current cost.
 
-This engagement turns tolerated chaos from an implicit tax into an explicit line item. Leadership does not just choose mitigations. They gain a defensible record of what they are paying for and why. Six months later, when someone asks "why does this still exist," the answer is documented: because we chose it, at this cost, for these reasons.
-
-This engagement creates a durable record that separates inherited dysfunction from ongoing negligence. When the next audit, incident review, or executive transition dredges up old decisions, the documentation exists. The choice was conscious. The cost was known. That distinction matters.
+This creates a durable record that separates inherited dysfunction from ongoing negligence. When the next audit, incident review, or executive transition dredges up old decisions, the documentation exists. The choice was conscious. The cost was known. That distinction matters.
 
 ## When This Service Is Used
 
@@ -70,21 +66,19 @@ This service is appropriate when the organization has completed a Tolerance Deci
 
 Typical entry signals include:
 
-- Tolerance Decision revealed significant ongoing cost for items marked "tolerable"
 - Leadership accepted the chaos but not the price
 - Engineering capacity remains constrained even after removals are complete
 - Workarounds implemented years ago have never been revisited for efficiency
-- Teams are coping with dysfunction using tools or patterns chosen under duress
-- Nobody knows what the tolerated chaos actually costs because nobody has ever asked
 - Orphaned workarounds built by people who left, now treated as load-bearing duct tape nobody dares touch
+- Nobody knows what the tolerated chaos actually costs because nobody has ever asked
 
-The question this engagement answers: "Given that we're keeping this problem, are we overpaying to live with it?"
-
-Most organizations are. The workaround was chosen in a crisis, by someone who has since left, using whatever was available at the time. It was never optimized because optimizing a workaround feels like admitting defeat. So it persists, expensive and unexamined, while everyone pretends it's just how things work.
+Many tolerated workarounds survive not because they are optimal, but because revisiting them threatens reputations, past decisions, or political boundaries. This engagement sidesteps that entirely by accepting the decision and only pricing the cost. No one gets blamed for what was chosen. The only question is whether you keep paying full price.
 
 ## Estimated Operational Impact
 
 Mitigation does not make tolerated chaos disappear. It changes the shape of the cost: fewer sharp edges, fewer bespoke systems, fewer humans acting as glue. The dysfunction remains, but it stops demanding so much attention.
+
+Beyond cost reduction, mitigation reshapes risk. Current workarounds often concentrate knowledge in single individuals, create surprise coupling between systems, or expand blast radius when they fail. Cheaper alternatives are frequently safer alternatives: simpler mechanisms fail in more predictable ways, with smaller consequences, and fewer people who must be woken at 3 AM to intervene.
 
 Common patterns that become cheaper include:
 
@@ -96,7 +90,6 @@ Common patterns that become cheaper include:
 
 Concrete examples of mitigation options:
 
-- A weekly manual reconciliation replaced with a daily append-only log and periodic sampling
 - A fragile cross-team integration replaced with a documented SLA and batch boundary
 - A complex HA setup replaced with explicit acceptance of downtime plus faster recovery
 - A Kubernetes cluster running three services replaced with managed VMs behind a load balancer
@@ -117,12 +110,11 @@ Rough estimates are enough. Leadership needs order-of-magnitude visibility, not 
 
 ## What Happens
 
-- Review each item from the Chaos Tolerance Decision marked as tolerated
-- Document the current coping mechanism for each item
-- Identify the observable cost: complexity, maintenance hours, tooling spend, cognitive load
-- Propose an alternative mechanism that achieves the same organizational goal
-- Quantify the expected reduction in operational burden
-- Document tradeoffs and constraints
+- Take each item from the Tolerance Decision marked as tolerated
+- Name the current coping mechanism and who carries it
+- Surface where cost is actually paid: people time, on-call pain, bespoke knowledge, hidden spend
+- Find a cheaper mechanism that achieves the same organizational outcome
+- Document what the alternative costs and what it trades away
 - Produce a Mitigation Register with options for each tolerated item
 - Present options to leadership for decision
 
