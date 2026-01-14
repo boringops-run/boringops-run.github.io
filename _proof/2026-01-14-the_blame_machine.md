@@ -1,4 +1,5 @@
 ---
+layout: single
 title: "The Blame Machine"
 excerpt: "Attaching incident cost to individual performance reviews looks like accountability. It is a chaos generator. This is what a Chaos Assessment finds first."
 header:
@@ -15,9 +16,10 @@ A post circulated recently about DoorDash's incident management philosophy:
 >
 > More orgs should do this.
 
-This is Twitter, so who knows if it's true. But the recommendation is real, and it's worth examining what a system like this actually creates.
+Whether this specific story is true does not matter. The recommendation is real. Many organizations already run softer versions of this system. The outcomes are predictable.
 
-So, what does it produce? A blame machine for ensuring that every technical decision becomes a political calculation. It solves the one problem every enterprise does not have: insufficient politics embedded in engineering work.
+What does it produce? A blame machine for ensuring that every technical decision becomes a political calculation. It solves the one problem every enterprise does not have: insufficient politics embedded in engineering work.
+
 
 
 ## The Framing Problem
@@ -32,7 +34,7 @@ The individual is the point of failure, not the system that left a pile of oily 
 
 This framing makes a specific claim about where reliability lives. It says reliability is a property of individual behavior rather than system design.
 
-This claim is wrong. It has been wrong for decades. The entire field of reliability engineering exists because this claim is wrong. Scale does not justify individual attribution. It makes it more absurd. The bigger the system, the more reckless it is to pretend causality collapses to a single engineer.
+This claim is wrong. It has been wrong for decades. We know it is wrong because systems with proper blast radius, staged deploys, and automated rollback do not produce single-human revenue events. The entire field of reliability engineering exists to make individual error survivable. Scale does not justify individual attribution. It makes it more absurd. The bigger the system, the more reckless it is to pretend causality collapses to a single engineer.
 
 Some leaders believe this creates discipline because outages feel "free" otherwise. If there is no consequence, they argue, there is no incentive to be careful.
 
@@ -74,6 +76,8 @@ The first cost shows up later.
 
 That revenue loss, let's say $20,000, is gone. Attaching it to Shane's performance review does not recover it. The outage happened. Customers were affected. The money walked out the door.
 
+That $20,000 feels large in a postmortem. It is microscopic compared to the cost of replacing a senior engineer, the lost throughput during ramp-up, and the slowdown imposed on everyone watching the lesson being taught.
+
 The only question that matters now is: what happens next?
 
 If you fix the system that allowed Shane's change to cause a $20,000 outage, you prevent the next one. If you blame Shane, you get one of three outcomes: Shane leaves, Shane stays and stops taking risk, or Shane stays and starts hoarding approvals and paper trails. All three are failure modes. None of them prevent the next outage.
@@ -89,6 +93,8 @@ This is the real resource waste. Not the $20,000. That is a sunk cost. The waste
 You have converted a high-output engineer into a bureaucrat optimizing for self-preservation.
 
 Meanwhile, the pile of oily rags remains. The next Shane will find it.
+
+
 
 ## The Apparatus Waste
 
@@ -106,7 +112,11 @@ The machine does not recover lost revenue. It does not prevent future outages. I
 
 It produces fear, politics, resume updates, and a culture where the optimal strategy is to avoid being the last person who touched anything.
 
+This is compliance theater built on production incidents.
+
 This is an expensive system for manufacturing dysfunction disguised as accountability engineering. The pattern shows up anywhere incident cost is treated as a performance signal. The details vary. The damage is identical.
+
+
 
 ## The Boring Alternative
 
