@@ -1,6 +1,7 @@
 ---
-title: "The DoorDash Blame Machine"
-excerpt: "DoorDash built an expensive system for manufacturing dysfunction and convinced themselves it was accountability engineering. This is what a Chaos Assessment finds first."
+layout: single
+title: "The Blame Machine"
+excerpt: "Attaching incident cost to individual performance reviews looks like accountability. It is a chaos generator. This is what a Chaos Assessment finds first."
 header:
   teaser: /assets/images/metronome.png
 tags: [case-study, incidents, accountability, culture, antipatterns]
@@ -15,10 +16,9 @@ A post circulated recently about DoorDash's incident management philosophy:
 >
 > More orgs should do this.
 
-More orgs should not do this.
+This is Twitter, so who knows if it's true. But the recommendation is real, and it's worth examining what a system like this actually creates.
 
-What they built is a blame machine for ensuring that every technical decision becomes a political calculation. This solves the one problem every enterprise does not have: insufficient politics embedded in engineering work.
-
+So, what does it produce? A blame machine for ensuring that every technical decision becomes a political calculation. It solves the one problem every enterprise does not have: insufficient politics embedded in engineering work.
 
 
 ## The Framing Problem
@@ -37,9 +37,7 @@ This claim is wrong. It has been wrong for decades. The entire field of reliabil
 
 Some leaders believe this creates discipline because outages feel "free" otherwise. If there is no consequence, they argue, there is no incentive to be careful.
 
-But the consequence they created does not produce careful engineers. It produces silent, scared ones. And the system persists because executives want the upside of speed without owning the risk profile that speed creates. 
-
-It is an abdication of leadership responsibility, outsourcing risk downward because fixing architectural debt, deployment pipelines, and blast radius is harder than punishing the last person who touched the code.
+But the consequence they created does not produce careful engineers. It produces silent, scared ones. And the system persists because executives want the upside of speed without owning the risk profile that speed creates. It is an abdication of leadership responsibility, outsourcing risk downward because fixing architectural debt, deployment pipelines, and blast radius is harder than punishing the last person who touched the code.
 
 
 
@@ -93,13 +91,11 @@ You have converted a high-output engineer into a bureaucrat optimizing for self-
 
 Meanwhile, the pile of oily rags remains. The next Shane will find it.
 
-
-
 ## The Apparatus Waste
 
 The second cost shows up immediately.
 
-Someone at DoorDash built a system to calculate revenue impact per incident. Someone integrated that system with performance reviews. Someone created a process for attributing causation to specific engineers.
+Someone built a system to calculate revenue impact per incident. Someone integrated that system with performance reviews. Someone created a process for attributing causation to specific engineers.
 
 Managers now spend time in calibration sessions debating whether the $20,000 belongs to Shane or to the platform team that approved his change. HR has policies for how incident attribution affects promotion eligibility. Legal probably reviewed whether this creates liability exposure.
 
@@ -111,11 +107,7 @@ The machine does not recover lost revenue. It does not prevent future outages. I
 
 It produces fear, politics, resume updates, and a culture where the optimal strategy is to avoid being the last person who touched anything.
 
-DoorDash built an expensive system for manufacturing dysfunction and convinced themselves it was accountability engineering.
-
-This is a clean example, but the pattern shows up anywhere incident cost is treated as a performance signal. The details vary. The damage is identical.
-
-
+This is an expensive system for manufacturing dysfunction disguised as accountability engineering. The pattern shows up anywhere incident cost is treated as a performance signal. The details vary. The damage is identical.
 
 ## The Boring Alternative
 
@@ -143,7 +135,7 @@ This is exactly what a [Chaos Assessment](/services/chaos-assessment/) surfaces.
 
 The low-value, high-damage friction that leadership defends because it feels like rigor.
 
-DoorDash would walk into that assessment convinced their incident attribution system is a competitive advantage. They would walk out with it listed as a primary source of operational chaos, with a clear cost attached and a decision to make: kill it or own the ongoing damage explicitly.
+Any organization running this system would walk into that assessment convinced their incident attribution process is a competitive advantage. They would walk out with it listed as a primary source of operational chaos, with a clear cost attached and a decision to make: kill it or own the ongoing damage explicitly.
 
 Because that is the choice. You can have a blame machine or you can have a learning organization. You cannot have both.
 
@@ -151,6 +143,6 @@ The revenue loss from the outage is gone. The only question is whether you spend
 
 One of those paths leads to fewer outages. The other leads to fewer engineers willing to touch production.
 
-DoorDash chose the second path and called it accountability.
+Anyone who builds this system chose that path and called it accountability.
 
 They built theater and called it rigor.
