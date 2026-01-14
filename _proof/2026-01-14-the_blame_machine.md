@@ -1,5 +1,4 @@
 ---
-layout: single
 title: "The Blame Machine"
 excerpt: "Attaching incident cost to individual performance reviews looks like accountability. It is a chaos generator. This is what a Chaos Assessment finds first."
 header:
