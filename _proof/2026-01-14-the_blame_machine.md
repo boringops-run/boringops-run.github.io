@@ -1,5 +1,4 @@
 ---
-layout: single
 title: "The Blame Machine"
 excerpt: "Attaching incident cost to individual performance reviews looks like accountability. It is a chaos generator. This is what a Chaos Assessment finds first."
 header:
@@ -18,7 +17,7 @@ A post circulated recently about DoorDash's incident management philosophy:
 
 Whether this specific story is true does not matter. The recommendation is real. Many organizations already run softer versions of this system. The outcomes are predictable.
 
-What does it produce? A blame machine for ensuring that every technical decision becomes a political calculation. It solves the one problem every enterprise does not have: insufficient politics embedded in engineering work.
+What does this produce? A blame machine for ensuring that every technical decision becomes a political calculation. It solves the one problem every enterprise does not have: insufficient politics embedded in engineering work.
 
 
 
@@ -26,7 +25,7 @@ What does it produce? A blame machine for ensuring that every technical decision
 
 The language reveals everything.
 
-"An engineer caused an outage."
+> "An engineer caused an outage."
 
 Not: our system allowed a single engineer's action to produce this outcome. Not: our deployment pipeline lacked the safeguards to prevent this. Not: our architecture made this failure mode possible.
 
@@ -34,7 +33,7 @@ The individual is the point of failure, not the system that left a pile of oily 
 
 This framing makes a specific claim about where reliability lives. It says reliability is a property of individual behavior rather than system design.
 
-This claim is wrong. It has been wrong for decades. We know it is wrong because systems with proper blast radius, staged deploys, and automated rollback do not produce single-human revenue events. The entire field of reliability engineering exists to make individual error survivable. Scale does not justify individual attribution. It makes it more absurd. The bigger the system, the more reckless it is to pretend causality collapses to a single engineer.
+This claim is wrong. It has been wrong for decades. We know it is wrong because systems with proper blast radius, staged deploys, and automated rollback do not produce single-human revenue events. Reliability engineering exists to make individual error survivable. Scale does not justify individual attribution. It makes it more absurd. The bigger the system, the more reckless it is to pretend causality collapses to a single engineer.
 
 Some leaders believe this creates discipline because outages feel "free" otherwise. If there is no consequence, they argue, there is no incentive to be careful.
 
@@ -92,7 +91,7 @@ This is the real resource waste. Not the $20,000. That is a sunk cost. The waste
 
 You have converted a high-output engineer into a bureaucrat optimizing for self-preservation.
 
-Meanwhile, the pile of oily rags remains. The next Shane will find it.
+Meanwhile, the system that made the outage possible remains untouched. The next Shane will find it.
 
 
 
@@ -140,7 +139,7 @@ Punishing the person who happened to be holding the match when your pile of oily
 
 Any system that ties incident cost to individual performance is, by definition, a chaos generator.
 
-This is exactly what a [Chaos Assessment](/services/chaos-assessment/) surfaces. Not the obvious fires, but the machinery organizations build that they believe is productive when it is actively killing them.
+This is exactly the class of system a [Chaos Assessment](/services/chaos_assessment/) is designed to surface. Not the obvious fires, but the machinery organizations build that they believe is productive when it is actively compounding operational damage.
 
 The low-value, high-damage friction that leadership defends because it feels like rigor.
 
