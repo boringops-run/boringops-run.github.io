@@ -1,17 +1,56 @@
 ---
-title: "Articles"
+title: "Articles on DevOps, Platform Engineering & Operational Excellence"
+description: "Insights from the frontlines of operational chaos. Patterns, anti-patterns, and hard-won lessons on DevOps, platform engineering, and building boring infrastructure."
 permalink: /articles/
 layout: default
+sitemap:
+  priority: 0.8
+  changefreq: weekly
 ---
 
-<div class="articles-page">
+{% assign all_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ page.title }}",
+  "description": "{{ page.description }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "BoringOps",
+    "url": "{{ site.url }}"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ all_posts.size }},
+    "itemListElement": [
+      {% for post in all_posts limit:10 %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "url": "{{ site.url }}{{ post.url }}",
+        "name": {{ post.title | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+
+<main class="articles-page" role="main">
+  <div class="sr-only">
+    Articles covering DevOps best practices, platform engineering patterns,
+    SRE principles, infrastructure reliability, and operational excellence.
+    Written by BoringOps consultants with real-world experience stabilizing
+    production systems.
+  </div>
   <div class="articles-bg">
     <div class="bg-grid"></div>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
   </div>
-
-  {% assign all_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}
   {% assign featured_post = all_posts | where: "featured", true | first %}
 
   <header class="articles-header {% if featured_post %}has-featured{% endif %}">
@@ -109,10 +148,21 @@ layout: default
   </section>
   {% endif %}
 
-</div>
+</main>
 
 
 <style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
   .articles-page {
     background: #000;
     min-height: calc(100vh - 44px);
