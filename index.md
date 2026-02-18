@@ -27,7 +27,7 @@ permalink: /
       <span>Monitoring is noise</span>
       <span>Falling forward the norm</span>
     </div>
-    <p class="pattern-verdict">This isn't bad luck. It's architectural debt demanding payment.</p>
+    <p class="pattern-verdict">Architectural debt, demanding payment.</p>
     <p class="pattern-cta">Structural discipline removes it. <a href="/approach/">Learn the approach →</a></p>
   </div>
 </section>
@@ -139,7 +139,8 @@ permalink: /
 <section class="s-cta">
   <div class="cta-noise" aria-hidden="true">deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • don't touch that service • only Jake knows • Jake left • check Confluence • Confluence is wrong • deploy failed • customer escalation • all hands on deck • war room • same error different day • works on my machine • check the logs • which logs • logging is broken • we'll fix it next sprint • added to backlog • backlog is 400 items • priority 1 • everything is priority 1 • AWS is down • it's not DNS • it was DNS • cert expired • who renewed the cert • memory leak • disk full • connection pool exhausted • timeout • retry storm • cascading failure • single point of failure • no rollback plan • deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • redis is full • kafka lag • OOM killed • zombie process • SSL handshake failed • rate limited • quota exceeded • permissions denied • token expired • secret rotated • config drift • missing env var • wrong branch • merge conflict • deploy failed • rollback initiated • incident bridge open • who has access • check the runbook • which runbook • page the on-call • they're on PTO • escalate to platform • platform is underwater • we did this last month • nobody documented it • the fix is a restart • why does restarting fix it • don't touch that service • only Jake knows • Jake left • check Confluence • Confluence is wrong • deploy failed • customer escalation • all hands on deck • war room • same error different day • works on my machine • check the logs • which logs • logging is broken • we'll fix it next sprint • added to backlog • backlog is 400 items • priority 1 • everything is priority 1 • AWS is down • it's not DNS • it was DNS • cert expired • who renewed the cert • memory leak • disk full • connection pool exhausted • timeout • retry storm • cascading failure • single point of failure • no rollback plan</div>
   <div class="cta-inner">
-    <p><strong>This work begins with a Chaos Assessment.</strong></p>
+    <p class="cta-aside">No newsletters. No funnels.<br>You know if you need this help or not.</p>
+    <p><strong>We begin with a Chaos Assessment.</strong></p>
     <a href="/contact/" class="cta-btn">Request a Chaos Assessment</a>
   </div>
 </section>
@@ -924,6 +925,20 @@ permalink: /
     margin: 0 0 2rem;
   }
 
+  .cta-aside {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: rgba(249, 115, 22, 0);
+    letter-spacing: 0.08em;
+    margin: 0 0 2.5rem;
+    transition: color 2s ease-out, letter-spacing 2s ease-out;
+  }
+
+  .cta-aside.visible {
+    color: rgba(249, 115, 22, 0.85);
+    letter-spacing: 0.02em;
+  }
+
   .cta-inner a {
     display: inline-block;
     font-size: 0.9375rem;
@@ -1257,6 +1272,20 @@ permalink: /
       articleCards.forEach(function(card) {
         articlesObserver.observe(card);
       });
+    }
+
+    // CTA aside fade-in
+    var ctaAside = document.querySelector('.cta-aside');
+    if (ctaAside) {
+      var ctaObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            ctaAside.classList.add('visible');
+            ctaObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      ctaObserver.observe(document.querySelector('.s-cta'));
     }
   }
 
