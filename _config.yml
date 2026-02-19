@@ -1,8 +1,8 @@
 # Site Settings
 title: "BoringOps.Run"
-subtitle: "We calm operational chaos. You ship."
+subtitle: "Move the needle without moving the stack."
 name: "BoringOps.Run"
-description: "Independent operational diagnostics for teams trapped in complexity. No frameworks. No rewrites. Just the truth about why delivery is hard."
+description: "Move the needle without moving the stack. Independent operational diagnostics for engineering leaders trapped in complexity. No frameworks. No rewrites. Just the truth about why delivery is hard."
 url: "https://boringops.run"
 baseurl: ""
 
@@ -19,7 +19,7 @@ words_per_minute: 180
 # Site Author
 author:
   name: "BoringOps"
-  bio: "Operational diagnostics for teams stuck in permanent firefighting."
+  bio: "For engineering leaders ready to move the needle without moving the stack."
   location: "Remote"
   email: "hello@boringops.run"
   links:

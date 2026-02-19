@@ -6,7 +6,7 @@ permalink: /
 
 <section class="s-opening">
   <div class="opening-inner">
-  <p class="opening-line" data-typetext="An Operational Intervention for Engineering Organizations."><span class="opening-line-text"></span></p>
+  <p class="opening-line" data-typetext="Move the needle without moving the stack."><span class="opening-line-text"></span></p>
     <p class="opening-line" data-typetext=""><span class="opening-line-text"></span></p>
     <p class="opening-line" data-typetext="Capacity leaks are identified."><span class="opening-line-text"></span></p>
     <p class="opening-line" data-typetext="Costs are made explicit."><span class="opening-line-text"></span></p>
