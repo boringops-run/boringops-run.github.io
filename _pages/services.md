@@ -34,6 +34,25 @@ permalink: /services/
   </section>
 
   <section class="services-list">
+    <a href="/services/chaos_snapshot/" class="service-card service-card--snapshot" data-num="00">
+      <div class="service-card-inner">
+        <span class="service-card-number">00</span>
+        <h2>Chaos Snapshot</h2>
+        <p class="service-card-question">What's actually broken?</p>
+        <p class="service-card-desc">
+          20 minutes. One painful area. Blunt feedback.
+          No deck, no sales pitch. $299 or free if we both agree it's not a fit.
+        </p>
+        <ul class="service-card-outputs">
+          <li>Live review</li>
+          <li>Written summary</li>
+          <li>No strings attached</li>
+        </ul>
+        <span class="service-card-duration">20 minutes · $299</span>
+      </div>
+      <span class="service-card-cta">Book now &rarr;</span>
+    </a>
+
     <a href="/services/chaos_assessment/" class="service-card service-card--primary" data-num="01">
       <div class="service-card-inner">
         <span class="service-card-number">01</span>
@@ -115,6 +134,12 @@ permalink: /services/
     <div class="services-path-inner">
       <h2>The Path</h2>
       <div class="path-visual">
+        <div class="path-step">
+          <span class="path-num">0</span>
+          <span class="path-label">Chaos Snapshot</span>
+          <span class="path-note">Start here</span>
+        </div>
+        <div class="path-arrow">→</div>
         <div class="path-step">
           <span class="path-num">1</span>
           <span class="path-label">Chaos Assessment</span>
@@ -309,6 +334,20 @@ permalink: /services/
 
   .service-card.visible:hover {
     transform: translateX(4px);
+  }
+
+  .service-card--snapshot {
+    border-left-color: rgba(249, 115, 22, 0.9);
+    background:
+      linear-gradient(90deg, rgba(249, 115, 22, 0.06) 0%, transparent 50%),
+      #080808;
+  }
+
+  .service-card--snapshot:hover {
+    border-left-color: rgba(249, 115, 22, 1);
+    background:
+      linear-gradient(90deg, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+      #0c0c0c;
   }
 
   .service-card--primary {
